@@ -1,0 +1,160 @@
+.experience {
+  background: var(--color-gray-100);
+}
+
+.experience__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.experience__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Carte expérience */
+.exp-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-card);
+  border-left: 4px solid var(--color-primary);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.exp-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.exp-card--formation {
+  border-left-color: var(--badge-ux);
+}
+
+.exp-card--prize {
+  border-left-color: #D97706;
+}
+
+.exp-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.exp-card__company {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  line-height: var(--leading-snug);
+}
+
+.exp-card__subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  font-weight: var(--weight-medium);
+  margin-top: 2px;
+}
+
+.exp-card__role {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.exp-card__period {
+  font-size: var(--text-xs);
+  color: var(--color-gray-400);
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: var(--color-gray-100);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.exp-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.exp-card__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-4);
+}
+
+.exp-card__bullets li {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  line-height: var(--leading-relaxed);
+  position: relative;
+}
+
+.exp-card__bullets li::before {
+  content: '—';
+  position: absolute;
+  left: calc(-1 * var(--space-4));
+  color: var(--color-primary);
+  font-weight: var(--weight-bold);
+}
+
+/* Centres d'intérêt */
+.interests__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.interest-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: white;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-gray-800);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-200);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.interest-chip:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(242,101,34,0.12);
+}
+
+.interest-chip__icon {
+  font-size: var(--text-lg);
+}
+
+@media (max-width: 900px) {
+  .experience__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+  .interests__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .interests__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
