@@ -1,5 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#F26522"/>
-  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-        font-family="sans-serif" font-weight="800" font-size="20" fill="white">C</text>
+  <circle cx="16" cy="16" r="16" fill="#FF6B35"/>
+  <text
+    x="16"
+    y="21"
+    font-family="Georgia, serif"
+    font-size="13"
+    font-weight="700"
+    font-style="italic"
+    fill="white"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >CL</text>
 </svg>
