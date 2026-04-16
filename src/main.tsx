@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import './styles/globals.css'
+import { createHashHistory } from '@tanstack/react-router'
 
 const router = createRouter({
   routeTree,
+  history: createHashHistory(),
   defaultPreload: 'intent',
   // For GitHub Pages with /portfolio/ base
   basepath: import.meta.env.BASE_URL,
