@@ -81,7 +81,6 @@ export function ProjectPage({ slug }: ProjectPageProps) {
       {/* Main content */}
       <div className="py-20">
         <div className="section-container">
-
           {/* Versions timeline (V1 → V2) */}
           {detail.versions && detail.versions.length > 0 && (
             <AnimatedSection className="mb-4">

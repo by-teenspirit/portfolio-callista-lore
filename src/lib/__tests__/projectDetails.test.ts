@@ -27,10 +27,9 @@ describe('PROJECT_DETAILS', () => {
     const VALID_TYPES = ['text', 'highlight', 'image-placeholder', 'two-col', 'quote', 'metrics']
     Object.entries(PROJECT_DETAILS).forEach(([slug, detail]) => {
       detail.process.forEach((section, i) => {
-        expect(
-          VALID_TYPES,
-          `${slug} process[${i}]: invalid type "${section.type}"`
-        ).toContain(section.type)
+        expect(VALID_TYPES, `${slug} process[${i}]: invalid type "${section.type}"`).toContain(
+          section.type
+        )
       })
     })
   })

@@ -24,14 +24,8 @@ export function CustomCursor() {
 
   return (
     <>
-      <div
-        className="cursor hidden md:block"
-        style={{ left: x, top: y }}
-      />
-      <div
-        ref={followerRef}
-        className={cn('cursor-follower hidden md:block')}
-      />
+      <div className="cursor hidden md:block" style={{ left: x, top: y }} />
+      <div ref={followerRef} className={cn('cursor-follower hidden md:block')} />
     </>
   )
 }

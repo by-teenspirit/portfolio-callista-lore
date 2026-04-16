@@ -27,8 +27,8 @@ export function AboutSection() {
             <p className="text-base font-body text-ink-muted leading-relaxed">
               Diplômée d'un{' '}
               <span className="text-ink font-medium">Mastère UX Design & Stratégie Digitale</span>{' '}
-              (Major ex-aequo), je me passionne pour la création de produits numériques centrés
-              sur l'humain — en particulier tout ce qui touche à la{' '}
+              (Major ex-aequo), je me passionne pour la création de produits numériques centrés sur
+              l'humain — en particulier tout ce qui touche à la{' '}
               <span className="text-brand-orange font-medium">gamification</span> et à l'engagement
               utilisateur.
             </p>
@@ -38,8 +38,8 @@ export function AboutSection() {
             </p>
             <p className="text-base font-body text-ink-muted leading-relaxed">
               Actuellement en alternance chez{' '}
-              <span className="text-ink font-medium">iDalgo / Scorecast</span>, je travaille sur
-              des modules de gamification pour la presse sportive.
+              <span className="text-ink font-medium">iDalgo / Scorecast</span>, je travaille sur des
+              modules de gamification pour la presse sportive.
             </p>
           </div>
 
@@ -79,7 +79,8 @@ export function AboutSection() {
                   Miro: '/tools/miro.svg',
                   PostgreSQL: '/tools/postgresql.svg',
                 }
-                const logo = fileMap[label] ?? `/tools/${label.toLowerCase().replace(/\s+/g, '-')}.svg`
+                const logo =
+                  fileMap[label] ?? `/tools/${label.toLowerCase().replace(/\s+/g, '-')}.svg`
                 return <ToolLogo key={label} tool={{ label, logo }} size="sm" />
               })}
             </div>
@@ -119,7 +120,9 @@ export function AboutSection() {
                   <div className="bg-white border border-ink/5 rounded-2xl p-6 hover:border-brand-orange/20 hover:shadow-lg hover:shadow-brand-orange/5 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                       <div>
-                        <h4 className="font-body font-semibold text-ink text-base">{exp.company}</h4>
+                        <h4 className="font-body font-semibold text-ink text-base">
+                          {exp.company}
+                        </h4>
                         <p className="text-sm font-body text-ink-muted italic">{exp.role}</p>
                       </div>
                       <div className="flex items-center gap-2 flex-shrink-0">
@@ -140,7 +143,10 @@ export function AboutSection() {
                     </div>
                     <ul className="space-y-1.5">
                       {exp.achievements.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm font-body text-ink-muted">
+                        <li
+                          key={j}
+                          className="flex items-start gap-2 text-sm font-body text-ink-muted"
+                        >
                           <span className="text-brand-orange mt-1 flex-shrink-0">›</span>
                           {item}
                         </li>
@@ -188,13 +194,13 @@ export function AboutSection() {
                   ))}
                 </div>
                 <ul className="space-y-1.5">
-                      {edu.achievements.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm font-body text-ink-muted">
-                          <span className="text-brand-orange mt-1 flex-shrink-0">›</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                  {edu.achievements.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm font-body text-ink-muted">
+                      <span className="text-brand-orange mt-1 flex-shrink-0">›</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>

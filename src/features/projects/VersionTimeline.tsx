@@ -28,7 +28,9 @@ export function VersionTimeline({ versions }: VersionTimelineProps) {
                 </span>
                 <h4 className="text-sm font-body font-semibold text-ink">{version.title}</h4>
               </div>
-              <p className="text-xs font-body text-ink-muted leading-relaxed">{version.description}</p>
+              <p className="text-xs font-body text-ink-muted leading-relaxed">
+                {version.description}
+              </p>
             </motion.div>
 
             {i < versions.length - 1 && (

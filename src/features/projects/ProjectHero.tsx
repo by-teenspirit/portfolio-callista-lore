@@ -9,6 +9,12 @@ interface ProjectHeroProps {
   detail: ProjectDetail
 }
 
+const resolveLogoUrl = (logo: string): string => {
+  if (logo.startsWith('http://') || logo.startsWith('https://')) return logo
+  const base = (import.meta.env.BASE_URL ?? '/').replace(/\/+$/, '')
+  return `${base}${logo.startsWith('/') ? logo : `/${logo}`}`
+}
+
 export function ProjectHero({ project, detail }: ProjectHeroProps) {
   return (
     <section className="relative overflow-hidden pt-28 pb-16">
@@ -71,16 +77,7 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
                     >
                       {company.logo ? (
                         <img
-                          src={(() => {
-                            const base = (import.meta as any).env?.BASE_URL?.replace(/\/$/, '') || ''
-                            if (
-                              company.logo.startsWith('http://') ||
-                              company.logo.startsWith('https://')
-                            ) {
-                              return company.logo
-                            }
-                            return `${base}${company.logo.startsWith('/') ? company.logo : `/${company.logo}`}`
-                          })()}
+                          src={resolveLogoUrl(company.logo)}
                           alt={company.name}
                           className="h-5 w-auto"
                           loading="lazy"
@@ -103,16 +100,7 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
                     >
                       {company.logo ? (
                         <img
-                          src={(() => {
-                            const base = (import.meta as any).env?.BASE_URL?.replace(/\/$/, '') || ''
-                            if (
-                              company.logo.startsWith('http://') ||
-                              company.logo.startsWith('https://')
-                            ) {
-                              return company.logo
-                            }
-                            return `${base}${company.logo.startsWith('/') ? company.logo : `/${company.logo}`}`
-                          })()}
+                          src={resolveLogoUrl(company.logo)}
                           alt={company.name}
                           className="h-5 w-auto"
                           loading="lazy"
@@ -199,13 +187,7 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
                     className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-ink/8 rounded-xl"
                   >
                     <img
-                      src={(() => {
-                        const base = (import.meta as any).env?.BASE_URL?.replace(/\/$/, '') || ''
-                        if (tool.logo.startsWith('http://') || tool.logo.startsWith('https://')) {
-                          return tool.logo
-                        }
-                        return `${base}${tool.logo.startsWith('/') ? tool.logo : `/${tool.logo}`}`
-                      })()}
+                      src={resolveLogoUrl(tool.logo)}
                       alt={tool.label}
                       className="w-4 h-4 object-contain"
                       loading="lazy"
@@ -240,4 +222,3 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
     </section>
   )
 }
-

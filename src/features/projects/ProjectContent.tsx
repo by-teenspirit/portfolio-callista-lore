@@ -21,7 +21,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
   const delay = Math.min(index * 0.06, 0.3)
   const resolveAssetUrl = (src: string) => {
     if (src.startsWith('http://') || src.startsWith('https://')) return src
-    const base = ((import.meta as any).env?.BASE_URL ?? '/').replace(/\/+$/, '')
+    const base = (import.meta.env.BASE_URL ?? '/').replace(/\/+$/, '')
     return `${base}${src.startsWith('/') ? src : `/${src}`}`
   }
 
@@ -130,7 +130,9 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
               <div className="hidden aspect-video items-center justify-center bg-ink/[0.03]">
                 <div className="text-center">
                   <div className="text-4xl mb-3">🖼️</div>
-                  <p className="text-sm font-mono text-ink-subtle">{section.alt ?? 'Visuel du projet'}</p>
+                  <p className="text-sm font-mono text-ink-subtle">
+                    {section.alt ?? 'Visuel du projet'}
+                  </p>
                 </div>
               </div>
               {section.label && (
@@ -143,7 +145,9 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
             <div className="rounded-2xl overflow-hidden bg-ink/[0.03] border border-ink/8 aspect-video flex items-center justify-center">
               <div className="text-center">
                 <div className="text-4xl mb-3">🖼️</div>
-                <p className="text-sm font-mono text-ink-subtle">{section.alt ?? 'Visuel du projet'}</p>
+                <p className="text-sm font-mono text-ink-subtle">
+                  {section.alt ?? 'Visuel du projet'}
+                </p>
               </div>
             </div>
           )}

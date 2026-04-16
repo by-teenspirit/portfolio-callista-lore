@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
     title: 'Instant Prod',
     subtitle: 'Mise en relation cinéma',
     description:
-      "Projet entrepreneurial de mise en relation de jeunes diplômés de cinéma et de directeurs de production. UX Research approfondie pour comprendre les besoins des deux côtés du marché.",
+      'Projet entrepreneurial de mise en relation de jeunes diplômés de cinéma et de directeurs de production. UX Research approfondie pour comprendre les besoins des deux côtés du marché.',
     tags: ['UX Research', 'Gestion de projet'],
     coverColor: '#0F2027',
     coverEmoji: '🎬',
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
     title: 'Direct Mandat',
     subtitle: 'Refonte UX complète',
     description:
-      "Refonte du site web de DirectMandat via des ateliers collaboratifs avec les équipes. Approche responsive-first, création de wireframes et maquettes fonctionnelles.",
+      'Refonte du site web de DirectMandat via des ateliers collaboratifs avec les équipes. Approche responsive-first, création de wireframes et maquettes fonctionnelles.',
     tags: ['UX Design', 'Gestion de projet'],
     coverColor: '#1B2A1B',
     coverEmoji: '🏠',
@@ -139,7 +139,7 @@ export const EXPERIENCES: Experience[] = [
     current: true,
     achievements: [
       "Refonte des modules iDalgo destinés à l'affichage d'informations pour la presse sportive",
-      'Développement d\'un projet en React',
+      "Développement d'un projet en React",
       "Réflexion de gamification sur l'application Scorecast : pronostics entre amis",
     ],
   },
@@ -151,8 +151,8 @@ export const EXPERIENCES: Experience[] = [
     tags: ['UX Design', 'Gamification', 'CRM', 'Communication visuelle'],
     achievements: [
       'Refonte du site web de DirectMandat via des ateliers, responsive',
-      'Création d\'une application interne pour BlackSkill',
-      'Gestion des projets et applications d\'Atid Consulting, l\'Office du Tourisme de Bordeaux, Airmont',
+      "Création d'une application interne pour BlackSkill",
+      "Gestion des projets et applications d'Atid Consulting, l'Office du Tourisme de Bordeaux, Airmont",
       'Réflexion de gamification et gestion de projet pour un programme Ambassadeur NuxeLink',
     ],
   },
@@ -164,7 +164,7 @@ export const EXPERIENCES: Experience[] = [
     tags: ['UX Design', 'Mise en relation', 'Marketing', 'Gestion de projet'],
     achievements: [
       'Co-fondé une plateforme de mise en relation artisans/particuliers',
-      'Création des maquettes et mise en ligne d\'une première version atteignant 100 utilisateurs',
+      "Création des maquettes et mise en ligne d'une première version atteignant 100 utilisateurs",
       'Refonte complète du projet dans le cadre du Mastère (mention major ex-aequo)',
     ],
   },
@@ -177,7 +177,7 @@ export const EXPERIENCES: Experience[] = [
     achievements: [
       'Réalisation de missions ponctuelles de conception UX/UI (maquettes fonctionnelles, audits UX, wireframes)',
       'Travail avec des indépendants et petites structures, approche sur mesure centrée utilisateur',
-      'Refonte de l\'application Blackskill : modernisation de l\'interface'
+      "Refonte de l'application Blackskill : modernisation de l'interface",
     ],
   },
   {
@@ -188,7 +188,7 @@ export const EXPERIENCES: Experience[] = [
     tags: ['Wireframe', 'UX Design', 'CMS Magento', 'SEO/SEA'],
     achievements: [
       'Maintien du CMS et changement de design du site web selon la période marketing',
-      'Communication via newsletter, mise en place d\'une stratégie marketing',
+      "Communication via newsletter, mise en place d'une stratégie marketing",
       'Prises et retouches photos pour les produits',
     ],
   },
@@ -220,7 +220,7 @@ export const EDUCATION: Education[] = [
       'Réponse à un appel d’offre pour le CCI du Gers',
       'Mémoire sur l’engagement des utilisateurs',
       'Projet entreprenariat sur la mise en relation de particuliers en demande de dépannage et d’artisans',
-      'Projet entreprenariat de mise en relation de jeunes diplômés de cinéma et de directeurs de production'
+      'Projet entreprenariat de mise en relation de jeunes diplômés de cinéma et de directeurs de production',
     ],
     mention: 'Major ex-aequo',
   },
@@ -243,9 +243,9 @@ export const EDUCATION: Education[] = [
     ],
     achievements: [
       'Projet individuel d’un magazine de Street Art - site codé en HTML/CSS',
-      'Refonte du site Tangram avec l\'objectif d\'une modernisation et amélioration de l’expérience utilisateur',
+      "Refonte du site Tangram avec l'objectif d'une modernisation et amélioration de l’expérience utilisateur",
       'Création d’un site avec intégration d’un objet 3D créé sur Blender',
-      'Création d’une application pour donner envie aux enfants en situation de handicap de faire du sport'
+      'Création d’une application pour donner envie aux enfants en situation de handicap de faire du sport',
     ],
   },
 ]

@@ -29,20 +29,20 @@ export interface ProjectSection {
 }
 
 export interface ProjectVersion {
-  label: string        // 'V1' | 'V2'
+  label: string // 'V1' | 'V2'
   title: string
   description: string
 }
 
 export interface ProjectCompany {
   name: string
-  logo?: string        // chemin vers /public/logos/*.svg
+  logo?: string // chemin vers /public/logos/*.svg
   url?: string
 }
 
 export interface ProjectTool {
   label: string
-  logo: string         // chemin vers /public/tools/*.svg
+  logo: string // chemin vers /public/tools/*.svg
 }
 
 export interface ProjectDetail {

@@ -3,15 +3,27 @@ import { ArrowDown, Sparkles } from 'lucide-react'
 import { scrollToSection } from '@/utils'
 
 const SKILLS_ORBIT = [
-  'UX Design', 'UX Research', 'Gamification',
-  'Product Design', 'Front-End', 'UI Design',
+  'UX Design',
+  'UX Research',
+  'Gamification',
+  'Product Design',
+  'Front-End',
+  'UI Design',
 ]
 
 const MARQUEE_ITEMS = [
-  '✦ UX Design', '✦ Product Design', '✦ UX Research',
-  '✦ Gamification', '✦ UI Design', '✦ Front-End',
-  '✦ UX Design', '✦ Product Design', '✦ UX Research',
-  '✦ Gamification', '✦ UI Design', '✦ Front-End',
+  '✦ UX Design',
+  '✦ Product Design',
+  '✦ UX Research',
+  '✦ Gamification',
+  '✦ UI Design',
+  '✦ Front-End',
+  '✦ UX Design',
+  '✦ Product Design',
+  '✦ UX Research',
+  '✦ Gamification',
+  '✦ UI Design',
+  '✦ Front-End',
 ]
 
 const containerVariants = {
@@ -75,15 +87,11 @@ export function HeroSection() {
             className="text-lg md:text-xl font-body font-light text-ink-muted max-w-xl mb-3 leading-relaxed"
           >
             UX Designer & Chef de Projet passionnée par la{' '}
-            <span className="font-medium text-ink">gamification</span> et la création
-            d'expériences numériques{' '}
-            <span className="font-medium text-ink">engageantes</span>.
+            <span className="font-medium text-ink">gamification</span> et la création d'expériences
+            numériques <span className="font-medium text-ink">engageantes</span>.
           </motion.p>
 
-          <motion.p
-            variants={itemVariants}
-            className="text-sm font-mono text-ink-subtle mb-12"
-          >
+          <motion.p variants={itemVariants} className="text-sm font-mono text-ink-subtle mb-12">
             Product Design · UX Research · UI Design · Front-End
           </motion.p>
 
@@ -95,10 +103,7 @@ export function HeroSection() {
             >
               Voir mes projets →
             </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="btn-outline text-base"
-            >
+            <button onClick={() => scrollToSection('contact')} className="btn-outline text-base">
               Me contacter
             </button>
           </motion.div>
@@ -160,7 +165,9 @@ export function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
-        <span className="text-[10px] font-mono text-ink-subtle tracking-widest uppercase">Scroll</span>
+        <span className="text-[10px] font-mono text-ink-subtle tracking-widest uppercase">
+          Scroll
+        </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}

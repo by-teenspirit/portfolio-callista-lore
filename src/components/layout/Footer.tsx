@@ -13,7 +13,8 @@ export function Footer() {
         </div>
 
         <p className="text-ink-subtle text-xs font-body flex items-center gap-1">
-          Designé & codé avec <Heart size={10} className="text-brand-orange fill-brand-orange" /> — 2025
+          Designé & codé avec <Heart size={10} className="text-brand-orange fill-brand-orange" /> —
+          2025
         </p>
 
         <button

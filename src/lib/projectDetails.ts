@@ -5,7 +5,6 @@ import type { ProjectDetail } from '@/types'
 // 🏢 Vrais logos : déposer dans public/logos/ puis référencer dans companies[].logo
 
 export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
-
   'idalgo-scorecast': {
     context:
       "iDalgo est spécialisée dans la diffusion de données sportives en temps réel pour les grands médias : DHnet, France.tv, France Info, Le Parisien, Le Monde… Leurs modules d'affichage ont plus de quinze ans — fonctionnels, mais visuellement datés. Scorecast est leur application grand public de pronostics sportifs entre amis, en pleine refonte de positionnement et de cible.",
@@ -25,10 +24,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Audit & démarche',
-        left:
-          "Audit de l'existant : inventaire des modules, identification des problèmes visuels et techniques. Les modules ne sont pas responsives, le design est hétérogène selon les clients, et la dette technique impacte les performances.",
+        left: "Audit de l'existant : inventaire des modules, identification des problèmes visuels et techniques. Les modules ne sont pas responsives, le design est hétérogène selon les clients, et la dette technique impacte les performances.",
         right:
-          "Benchmark des standards actuels sur les grands médias européens. Définition des patterns UI modernes pour les widgets sportifs. Conception sous Figma, puis développement React sur la nouvelle plateforme.",
+          'Benchmark des standards actuels sur les grands médias européens. Définition des patterns UI modernes pour les widgets sportifs. Conception sous Figma, puis développement React sur la nouvelle plateforme.',
       },
       {
         type: 'image-placeholder',
@@ -46,10 +44,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Le système de gamification',
-        left:
-          "Éléments conçus : Scorecoins (monnaie virtuelle), badges de progression, système de divisions, roue de la fortune, avatars personnalisables, missions quotidiennes, pronostics plurisports quotidiens.",
+        left: 'Éléments conçus : Scorecoins (monnaie virtuelle), badges de progression, système de divisions, roue de la fortune, avatars personnalisables, missions quotidiennes, pronostics plurisports quotidiens.',
         right:
-          "Défis : grande équipe avec des appétences design variées → avis divergents. Changement brutal pour les utilisateurs 35-45 ans. Changement de cible vers 25-35. Mécanique addictive mais éthique.",
+          'Défis : grande équipe avec des appétences design variées → avis divergents. Changement brutal pour les utilisateurs 35-45 ans. Changement de cible vers 25-35. Mécanique addictive mais éthique.',
       },
       {
         type: 'image-placeholder',
@@ -68,7 +65,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     outcomes: [
       'Modules iDalgo redesignés et en cours de migration vers la nouvelle plateforme',
-      'Système de gamification Scorecast spécifié, validé et en cours d\'implémentation',
+      "Système de gamification Scorecast spécifié, validé et en cours d'implémentation",
       'Contribution front-end React directe sur la nouvelle plateforme',
       'Alignement équipe sur une vision gamification cohérente et éthique',
     ],
@@ -94,7 +91,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       "Projet entrepreneurial universitaire en groupe de 5 (avec le Campus Fonderie de l'Image), de mars à juin 2024. L'un des membres, passionné de cinéma, a mis en lumière une problématique forte : les jeunes cinéastes peinent à entrer en contact avec des producteurs. Instant Prod est né de là — une plateforme de mise en relation entre jeunes talents de l'audiovisuel et directeurs de production, inspirée de Malt.",
     role: 'UX Researcher, UX/UI Designer, co-conception produit',
     duration: 'Mars — Juin 2023',
-    team: '5 étudiants — Campus Fonderie de l\'Image',
+    team: "5 étudiants — Campus Fonderie de l'Image",
     challenge:
       "Concevoir une plateforme de confiance dans un secteur très relationnel où le bouche-à-oreille domine, tout en convaincant deux types d'utilisateurs très différents — jeunes talents précaires et directeurs de production expérimentés.",
     process: [
@@ -102,29 +99,27 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'highlight',
         title: 'Recherche terrain multi-acteurs',
         content:
-          "Appels auprès de producteurs, échanges avec des étudiants en cinéma (ESRA, CLCF…), consultation de juristes pour cadrer le modèle légal. Une recherche en double face de marché pour comprendre les deux côtés.",
+          'Appels auprès de producteurs, échanges avec des étudiants en cinéma (ESRA, CLCF…), consultation de juristes pour cadrer le modèle légal. Une recherche en double face de marché pour comprendre les deux côtés.',
         color: '#0F2027',
       },
       {
         type: 'two-col',
         title: 'Livrables stratégiques',
-        left:
-          "Business Model Canvas, Blue Ocean Strategy, analyse concurrentielle, plan de financement initial, seuil de rentabilité, BFR, MVP, cahier des charges Lean UX.",
+        left: 'Business Model Canvas, Blue Ocean Strategy, analyse concurrentielle, plan de financement initial, seuil de rentabilité, BFR, MVP, cahier des charges Lean UX.',
         right:
           "Cartes d'empathie, diagrammes d'alignement, personas (réalisateur junior / directeur de production), parcours utilisateur co-construit, fonctionnalités clés.",
       },
       {
         type: 'image-placeholder',
-        alt: 'Instant Prod — personas et cartes d\'empathie',
+        alt: "Instant Prod — personas et cartes d'empathie",
         label: 'Personas — Réalisateur & Directeur de prod',
       },
       {
         type: 'two-col',
         title: 'Design system Instant Prod',
-        left:
-          "Palette : bleu #3C55DA (primaire), lavande #D9E1FF, coral #F09375, pêche #FFD2BB. Typographie : Kollektif (titres) + Roboto (corps). Iconographie cohérente.",
+        left: 'Palette : bleu #3C55DA (primaire), lavande #D9E1FF, coral #F09375, pêche #FFD2BB. Typographie : Kollektif (titres) + Roboto (corps). Iconographie cohérente.',
         right:
-          "Composants : boutons 3 états (défaut, survol, désactivé), variantes secondaire/tertiaire, filtres multi-critères, cards talents avec compétences et TJM, bottom navigation.",
+          'Composants : boutons 3 états (défaut, survol, désactivé), variantes secondaire/tertiaire, filtres multi-critères, cards talents avec compétences et TJM, bottom navigation.',
       },
       {
         type: 'image-placeholder',
@@ -145,7 +140,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'metrics',
         metrics: [
-          { value: '5', label: 'membres dans l\'équipe' },
+          { value: '5', label: "membres dans l'équipe" },
           { value: '3', label: 'mois de projet intensif' },
           { value: '2', label: 'faces du marché adressées' },
           { value: '★', label: 'Valorisé par les professeurs' },
@@ -166,14 +161,14 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
   },
 
-  'blackskill': {
+  blackskill: {
     context:
       "BlackSkill est une application mobile interne destinée à faciliter la gestion, le suivi et la communication entre managers de football et joueurs. L'idée centrale : centraliser ce qui est éparpillé entre WhatsApp, Google Drive, Excel et notes perso dans un seul outil structuré, sécurisé et pensé pour le quotidien d'un staff.",
     role: 'UX/UI Designer — mission via One More Thing Studio',
     duration: 'Juin — Octobre 2024 (V1) & Novembre 2025 — Janvier 2026 (V2)',
     team: 'One More Thing Studio + équipe BlackSkill',
     challenge:
-      "La V1 skeumorphique avait une navigation confuse, des écrans en doublon, une logique incohérente entre modules et un design vieillissant. La V2 devait tout reconstruire sur des bases saines, sans tout refaire, dans les contraintes du devis.",
+      'La V1 skeumorphique avait une navigation confuse, des écrans en doublon, une logique incohérente entre modules et un design vieillissant. La V2 devait tout reconstruire sur des bases saines, sans tout refaire, dans les contraintes du devis.',
     versions: [
       {
         label: 'V1',
@@ -193,7 +188,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'highlight',
         title: 'V1 — Direction skeumorphique',
         content:
-          "La première version adoptait une esthétique skeumorphique forte : boutons avec relief, ombres portées réalistes, surfaces texturées. Une direction artistique distinctive, mais qui montrait ses limites en évolutivité et lisibilité mobile.",
+          'La première version adoptait une esthétique skeumorphique forte : boutons avec relief, ombres portées réalistes, surfaces texturées. Une direction artistique distinctive, mais qui montrait ses limites en évolutivité et lisibilité mobile.',
         color: '#1C1C1C',
       },
       {
@@ -211,10 +206,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Phase 1 — Fondations',
-        left:
-          "Refonte UI globale. Refonte navigation (menus selon usages réels). Suppression doublons. Design System : brand #FF7A30, typographie Plus Jakarta Sans, H1-H5 hiérarchisés, boutons 3 états.",
+        left: 'Refonte UI globale. Refonte navigation (menus selon usages réels). Suppression doublons. Design System : brand #FF7A30, typographie Plus Jakarta Sans, H1-H5 hiérarchisés, boutons 3 états.',
         right:
-          "Accessibilité : contrastes, tailles de texte mobile. Clarification 3 rôles : Joueur (accès simplifié), Manager (pilotage complet), Admin (gestion globale et sensible).",
+          'Accessibilité : contrastes, tailles de texte mobile. Clarification 3 rôles : Joueur (accès simplifié), Manager (pilotage complet), Admin (gestion globale et sensible).',
       },
       {
         type: 'image-placeholder',
@@ -224,10 +218,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Phase 2 & 3 — Pages métier',
-        left:
-          "Pages principales : Accueil Joueur, Accueil Manager, Agenda, Messagerie, Documents. Chaque écran : aller droit à l'essentiel, limiter les actions inutiles, éviter la surcharge.",
+        left: "Pages principales : Accueil Joueur, Accueil Manager, Agenda, Messagerie, Documents. Chaque écran : aller droit à l'essentiel, limiter les actions inutiles, éviter la surcharge.",
         right:
-          "Modules complexes : Scouting (joueurs, prospects, clubs, matchs), Projets, Tâches, Comptes-rendus, Rapports & bilans (multi-étapes avec brouillon), Notes de frais, Compositions (drag & drop).",
+          'Modules complexes : Scouting (joueurs, prospects, clubs, matchs), Projets, Tâches, Comptes-rendus, Rapports & bilans (multi-étapes avec brouillon), Notes de frais, Compositions (drag & drop).',
       },
       {
         type: 'image-placeholder',
@@ -243,7 +236,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'quote',
         content:
           "« Réalisation de l'interface en suivant les demandes du client, même lorsqu'elles allaient à l'encontre de mes recommandations graphiques ou ergonomiques. »",
-        author: 'Retour d\'expérience — Callista Loré',
+        author: "Retour d'expérience — Callista Loré",
       },
       {
         type: 'metrics',
@@ -273,12 +266,12 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
   },
 
-  'human2sport': {
+  human2sport: {
     context:
       "Le Hackathon Human2Sport est organisé chaque année par Plaine Commune depuis 2018. L'édition 2023 portait sur « Sport, culture, patrimoine et territoire ». Notre défi, soumis par ITHAKE (spécialiste IA) : comment renforcer l'engagement des utilisateurs autour d'une monnaie locale — la Carte Éco — pour encourager le commerce de proximité à Plaine Commune ?",
     role: 'UX Designer & Gamification Designer',
     duration: '7 au 10 novembre 2023 — 3,5 jours',
-    team: 'Campus Fonderie de l\'Image + Epitech + Université Paris 8',
+    team: "Campus Fonderie de l'Image + Epitech + Université Paris 8",
     challenge:
       "En 3,5 jours, concevoir une gamification intelligente et personnalisée pour l'application Carte Éco, en collaboration avec l'IA d'ITHAKE — pour stimuler l'engagement à long terme autour du commerce de proximité local.",
     process: [
@@ -292,8 +285,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Notre proposition',
-        left:
-          "Système de badges et de rangs progressifs. Arbre de compétences inspiré des jeux vidéo en 5 branches : 🥦 Alimentation · 🏡 Logement · 🚲 Mobilité · 💚 Vie saine · 🌱 Biodiversité.",
+        left: 'Système de badges et de rangs progressifs. Arbre de compétences inspiré des jeux vidéo en 5 branches : 🥦 Alimentation · 🏡 Logement · 🚲 Mobilité · 💚 Vie saine · 🌱 Biodiversité.',
         right:
           "Défis progressifs donnant des points pour devenir Ambassadeur d'une branche. L'IA ITHAKE adaptait l'expérience à chaque profil. Notifications personnalisées selon les habitudes.",
       },
@@ -331,8 +323,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     outcomes: [
       '🏆 Projet "Coup de Cœur" parmi des dizaines de propositions',
-      'Système de gamification avec arbre de compétences et système d\'ambassadeurs',
-      'Intégration IA (ITHAKE) pour personnalisation de l\'expérience',
+      "Système de gamification avec arbre de compétences et système d'ambassadeurs",
+      "Intégration IA (ITHAKE) pour personnalisation de l'expérience",
       'Prototype présenté devant un public de professionnels',
     ],
     learnings:
@@ -344,20 +336,22 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     context:
       "PES Dépannage (Plomberie, Électricité, Serrurerie) est né d'une initiative familiale. Ma tante, plombière indépendante, subissait des commissions très élevées sur les plateformes existantes. Côté clients : manque de transparence et coûts non maîtrisés. De ces constats est née l'idée d'une plateforme plus humaine, plus juste et plus directe.",
     role: 'Co-fondatrice, UX Designer & Product Owner',
-    duration: 'De 2022 à aujourd\'hui',
+    duration: "De 2022 à aujourd'hui",
     team: '2 co-fondateurs',
     challenge:
-      "Créer de la confiance entre artisans indépendants et particuliers dans un marché peu transparent, avec zéro budget marketing. Puis remettre entièrement en question ce premier travail pour le reconstruire avec une vraie méthodologie UX.",
+      'Créer de la confiance entre artisans indépendants et particuliers dans un marché peu transparent, avec zéro budget marketing. Puis remettre entièrement en question ce premier travail pour le reconstruire avec une vraie méthodologie UX.',
     versions: [
       {
         label: 'V1',
         title: 'MVP 2022-2023',
-        description: 'Premières maquettes en autonomie, parcours utilisateur basique, modèle économique initial basé sur l\'abonnement (vs commission). Mise en ligne — 100 utilisateurs atteints.',
+        description:
+          "Premières maquettes en autonomie, parcours utilisateur basique, modèle économique initial basé sur l'abonnement (vs commission). Mise en ligne — 100 utilisateurs atteints.",
       },
       {
         label: 'V2',
         title: 'Refonte UX 2024',
-        description: 'Remise à zéro complète avec recherche utilisateur rigoureuse, personas, wireframes, tests, nouveau design system. Mention Major ex-aequo au Mastère.',
+        description:
+          'Remise à zéro complète avec recherche utilisateur rigoureuse, personas, wireframes, tests, nouveau design system. Mention Major ex-aequo au Mastère.',
       },
     ],
     process: [
@@ -383,10 +377,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Recherche utilisateur V2',
-        left:
-          "Questionnaires Google Forms auprès de particuliers ayant utilisé des services de dépannage. Entretiens qualitatifs avec des artisans (plombiers, serruriers, électriciens). Benchmark approfondi des plateformes existantes.",
+        left: 'Questionnaires Google Forms auprès de particuliers ayant utilisé des services de dépannage. Entretiens qualitatifs avec des artisans (plombiers, serruriers, électriciens). Benchmark approfondi des plateformes existantes.',
         right:
-          "Création de personas réalistes. Analyse des frictions dans les premières maquettes. Diagrammes UML. Organisation des livrables sur Notion.",
+          'Création de personas réalistes. Analyse des frictions dans les premières maquettes. Diagrammes UML. Organisation des livrables sur Notion.',
       },
       {
         type: 'image-placeholder',
@@ -396,10 +389,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Nouveaux parcours V2',
-        left:
-          "Côté client : signaler une urgence → localiser un artisan → choisir → payer en confiance. Interface pensée pour le stress de la situation, besoin de réassurance, simplicité maximale.",
+        left: 'Côté client : signaler une urgence → localiser un artisan → choisir → payer en confiance. Interface pensée pour le stress de la situation, besoin de réassurance, simplicité maximale.',
         right:
-          "Côté artisan : recevoir des demandes ciblées → filtrer selon disponibilité → facturer simplement. Nouveau design system : #33658A (primaire), #F26419 (accent), #F6AE2D (highlight).",
+          'Côté artisan : recevoir des demandes ciblées → filtrer selon disponibilité → facturer simplement. Nouveau design system : #33658A (primaire), #F26419 (accent), #F6AE2D (highlight).',
       },
       {
         type: 'image-placeholder',
@@ -425,7 +417,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       '100 utilisateurs atteints sur la V1 sans budget marketing',
       'Remise à zéro courageuse pour une V2 rigoureuse et centrée utilisateur',
       'Mention Major ex-aequo au Mastère pour la refonte complète',
-      'Leçon durable sur l\'importance de la méthodologie UX même sur ses propres projets',
+      "Leçon durable sur l'importance de la méthodologie UX même sur ses propres projets",
     ],
     learnings:
       "Ce projet m'a confrontée à la résilience nécessaire pour entreprendre. Savoir tout remettre en question après des mois de travail est un acte de maturité UX. Le bon parcours n'est pas celui qu'on imagine, mais celui qui fonctionne sur le terrain.",
@@ -463,8 +455,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Méthode & démarche',
-        left:
-          "Interviews avec des agents immobiliers pour comprendre leurs usages réels. Identification des fonctionnalités à conserver / supprimer / ajouter. Mobile-first dès les wireframes.",
+        left: 'Interviews avec des agents immobiliers pour comprendre leurs usages réels. Identification des fonctionnalités à conserver / supprimer / ajouter. Mobile-first dès les wireframes.',
         right:
           "Retravail du parcours UX complet. Amélioration UI avec les codes actuels. Beaucoup d'écoute client et d'allers-retours. Codé en front par l'agence, en back par DirectMandat.",
       },
@@ -475,7 +466,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       },
       {
         type: 'text',
-        title: 'Parcours d\'estimation multi-étapes',
+        title: "Parcours d'estimation multi-étapes",
         content:
           "Chantier clé : concevoir un parcours fluide pour estimer un bien immobilier. Décomposition du formulaire long en étapes claires et progressives avec indicateur de progression — pour fluidifier la navigation et réduire l'abandon.",
       },
@@ -512,7 +503,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
   },
 
-  'quadient': {
+  quadient: {
     context:
       "Quadient est un leader des solutions de communication client et de gestion du courrier. La mission : concevoir une application mobile permettant de scanner les marques d'affranchissement sur des enveloppes via photo, pour identifier la machine, son modèle, la date d'envoi, la société émettrice, l'adresse, le SIRET et le collaborateur — avec une dimension gamification pour engager les équipes.",
     role: 'UX/UI Designer — One More Thing Studio',
@@ -523,7 +514,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     process: [
       {
         type: 'highlight',
-        title: 'Le principe : scan d\'enveloppes intelligents',
+        title: "Le principe : scan d'enveloppes intelligents",
         content:
           "Via une photo de la marque d'affranchissement, l'app identifie : la marque de la machine, son modèle, la date d'envoi, la société émettrice, son adresse, son SIRET, et le collaborateur en charge. Une solution de terrain connectée à la data.",
         color: '#1A0A2E',
@@ -531,8 +522,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Fonctionnalités',
-        left:
-          "Scan rapide par photo. Accès à l'historique des scans du mois et en général. Classement mensuel visible : les collaborateurs cherchent à maximiser leurs scans pour la récompense mensuelle.",
+        left: "Scan rapide par photo. Accès à l'historique des scans du mois et en général. Classement mensuel visible : les collaborateurs cherchent à maximiser leurs scans pour la récompense mensuelle.",
         right:
           "Challenges à paliers prévus en V2. Fiche store conçue (screenshots, visuels marketing, description). Gamification intégrée au flux naturel de l'application.",
       },
@@ -602,8 +592,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       {
         type: 'two-col',
         title: 'Concepts et théories explorés',
-        left:
-          "Dark patterns, modèle Hook (Nir Eyal), Self-Determination Theory, Flow (Csikszentmihalyi), Fogg Behavior Model, Octalysis (Yu-kai Chou), framework MDA.",
+        left: 'Dark patterns, modèle Hook (Nir Eyal), Self-Determination Theory, Flow (Csikszentmihalyi), Fogg Behavior Model, Octalysis (Yu-kai Chou), framework MDA.',
         right:
           "Facteurs d'influence de l'engagement (Hodent, 2017) : perception, mémoire, attention, motivation, raison d'être, émotion, utilisabilité, engageabilité, fun.",
       },
@@ -620,8 +609,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       },
       {
         type: 'image-placeholder',
-        alt: 'Mémoire — framework d\'analyse de l\'engagement',
-        label: 'Framework d\'analyse — Engagement',
+        alt: "Mémoire — framework d'analyse de l'engagement",
+        label: "Framework d'analyse — Engagement",
       },
       {
         type: 'image-placeholder',
@@ -640,8 +629,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     outcomes: [
       'Mémoire 80+ pages — mention Major ex-aequo',
-      'Compréhension approfondie des dark patterns et de l\'éthique design',
-      'Framework personnel d\'analyse de l\'engagement en 5 dimensions',
+      "Compréhension approfondie des dark patterns et de l'éthique design",
+      "Framework personnel d'analyse de l'engagement en 5 dimensions",
       'Base théorique appliquée directement sur tous les projets gamification',
     ],
     learnings:

@@ -18,9 +18,7 @@ export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<ProjectTag | 'Tous'>('Tous')
 
   const filtered =
-    activeFilter === 'Tous'
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.tags.includes(activeFilter))
+    activeFilter === 'Tous' ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(activeFilter))
 
   return (
     <section id="projects" className="py-32 bg-ink/[0.015]">
@@ -32,11 +30,11 @@ export function ProjectsSection() {
           </p>
           <div className="flex flex-col md:flex-row md:items-end gap-6 justify-between">
             <h2 className="heading-lg text-ink">
-              Ce que j'ai{' '}
-              <span className="italic text-brand-orange">conçu</span>
+              Ce que j'ai <span className="italic text-brand-orange">conçu</span>
             </h2>
             <p className="text-sm text-ink-muted max-w-xs">
-              Des projets UX/UI, des hackathons, de la recherche — et toujours une intention derrière chaque pixel.
+              Des projets UX/UI, des hackathons, de la recherche — et toujours une intention
+              derrière chaque pixel.
             </p>
           </div>
         </AnimatedSection>

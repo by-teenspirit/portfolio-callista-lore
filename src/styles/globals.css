@@ -6,12 +6,12 @@
 
 @layer base {
   :root {
-    --brand-orange: #FF6B35;
-    --brand-orange-light: #FF8C5A;
-    --surface: #FAFAF8;
-    --surface-dark: #1A1A18;
-    --ink: #1A1A18;
-    --ink-muted: #6B6B60;
+    --brand-orange: #ff6b35;
+    --brand-orange-light: #ff8c5a;
+    --surface: #fafaf8;
+    --surface-dark: #1a1a18;
+    --ink: #1a1a18;
+    --ink-muted: #6b6b60;
   }
 
   * {
@@ -112,26 +112,46 @@
   .cursor {
     @apply fixed w-4 h-4 bg-brand-orange rounded-full pointer-events-none z-[9999] mix-blend-multiply;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.1s ease,
+      width 0.3s ease,
+      height 0.3s ease,
+      opacity 0.3s ease;
   }
 
   .cursor-follower {
     @apply fixed w-8 h-8 border border-brand-orange rounded-full pointer-events-none z-[9998];
     transform: translate(-50%, -50%);
-    transition: transform 0.25s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.25s ease,
+      width 0.3s ease,
+      height 0.3s ease,
+      opacity 0.3s ease;
   }
 }
 
 @layer utilities {
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
-  .animate-delay-400 { animation-delay: 400ms; }
-  .animate-delay-500 { animation-delay: 500ms; }
-  .animate-delay-600 { animation-delay: 600ms; }
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animate-delay-600 {
+    animation-delay: 600ms;
+  }
 
   .text-gradient {
-    background: linear-gradient(135deg, var(--brand-orange) 0%, #FF9A5C 100%);
+    background: linear-gradient(135deg, var(--brand-orange) 0%, #ff9a5c 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

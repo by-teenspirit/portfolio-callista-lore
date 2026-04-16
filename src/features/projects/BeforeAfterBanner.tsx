@@ -17,7 +17,9 @@ export function BeforeAfterBanner({ before, after }: BeforeAfterBannerProps) {
     >
       {/* Before */}
       <div className="bg-ink/[0.04] border border-ink/8 rounded-2xl p-5">
-        <p className="text-[10px] font-mono text-ink-subtle uppercase tracking-widest mb-2">Avant</p>
+        <p className="text-[10px] font-mono text-ink-subtle uppercase tracking-widest mb-2">
+          Avant
+        </p>
         <p className="text-sm font-body text-ink-muted leading-relaxed">{before}</p>
       </div>
 
@@ -30,7 +32,9 @@ export function BeforeAfterBanner({ before, after }: BeforeAfterBannerProps) {
 
       {/* After */}
       <div className="bg-brand-orange/5 border border-brand-orange/20 rounded-2xl p-5">
-        <p className="text-[10px] font-mono text-brand-orange uppercase tracking-widest mb-2">Après</p>
+        <p className="text-[10px] font-mono text-brand-orange uppercase tracking-widest mb-2">
+          Après
+        </p>
         <p className="text-sm font-body text-ink-muted leading-relaxed">{after}</p>
       </div>
     </motion.div>

@@ -35,12 +35,11 @@ export function ContactSection() {
             03 — Contact
           </p>
           <h2 className="heading-lg text-ink mb-4">
-            Travaillons{' '}
-            <span className="italic text-brand-orange">ensemble</span>
+            Travaillons <span className="italic text-brand-orange">ensemble</span>
           </h2>
           <p className="text-base font-body text-ink-muted max-w-md">
-            Je suis ouverte aux opportunités, aux collaborations, et toujours partante pour
-            parler de gamification autour d'un café ☕
+            Je suis ouverte aux opportunités, aux collaborations, et toujours partante pour parler
+            de gamification autour d'un café ☕
           </p>
         </AnimatedSection>
 
@@ -98,8 +97,8 @@ export function ContactSection() {
                 <span className="text-brand-orange italic">curriculum vitae</span>
               </h3>
               <p className="text-sm text-white/60 mb-8 leading-relaxed">
-                Retrouvez l'ensemble de mes expériences, compétences et formations dans mon
-                CV détaillé.
+                Retrouvez l'ensemble de mes expériences, compétences et formations dans mon CV
+                détaillé.
               </p>
               <a
                 href="/callista-lore-cv.pdf"

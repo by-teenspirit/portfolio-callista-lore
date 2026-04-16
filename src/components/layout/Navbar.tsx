@@ -44,10 +44,7 @@ export function Navbar() {
       >
         <div className="section-container flex items-center justify-between">
           {/* Logo */}
-          <button
-            onClick={() => handleNav('hero')}
-            className="group flex items-center gap-2"
-          >
+          <button onClick={() => handleNav('hero')} className="group flex items-center gap-2">
             <span className="w-7 h-7 rounded-full bg-brand-orange flex items-center justify-center text-white text-xs font-display font-bold">
               CL
             </span>
@@ -64,9 +61,7 @@ export function Navbar() {
                 onClick={() => handleNav(section)}
                 className={cn(
                   'relative px-4 py-2 text-sm font-body font-medium rounded-full transition-all duration-200',
-                  activeSection === section
-                    ? 'text-brand-orange'
-                    : 'text-ink-muted hover:text-ink'
+                  activeSection === section ? 'text-brand-orange' : 'text-ink-muted hover:text-ink'
                 )}
               >
                 {activeSection === section && (
