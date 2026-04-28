@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { ZoomableImage } from '@/components/ui/ZoomableImage'
 import type { ProjectSection } from '@/types'
 
 interface ProjectContentProps {
@@ -19,11 +20,6 @@ export function ProjectContent({ sections }: ProjectContentProps) {
 
 function SectionBlock({ section, index }: { section: ProjectSection; index: number }) {
   const delay = Math.min(index * 0.06, 0.3)
-  const resolveAssetUrl = (src: string) => {
-    if (src.startsWith('http://') || src.startsWith('https://')) return src
-    const base = (import.meta.env.BASE_URL ?? '/').replace(/\/+$/, '')
-    return `${base}${src.startsWith('/') ? src : `/${src}`}`
-  }
 
   switch (section.type) {
     case 'text':
@@ -138,45 +134,14 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
-    // ── NEW: image-full — image pleine largeur avec caption stylée ────────────
+    // ── image-full — pleine largeur avec hover zoom ───────────────────────────
     case 'image-full':
-      return (
-        <AnimatedSection delay={delay}>
-          <figure className="rounded-2xl overflow-hidden border border-ink/8 bg-ink/[0.02]">
-            {section.src ? (
-              <>
-                <img
-                  src={resolveAssetUrl(section.src)}
-                  alt={section.alt ?? section.label ?? 'Visuel du projet'}
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                  decoding="async"
-                  onError={(e) => {
-                    // Fallback gracieux si l'image n'est pas encore en place
-                    const el = e.currentTarget
-                    el.style.display = 'none'
-                    const fallback = el.nextElementSibling as HTMLElement | null
-                    if (fallback) fallback.classList.remove('hidden')
-                  }}
-                />
-                {/* Fallback affiché uniquement si l'image échoue */}
-                <div className="hidden aspect-[16/7] flex items-center justify-center bg-ink/[0.03]">
-                  <div className="text-center py-12">
-                    <div className="text-5xl mb-4">🖼️</div>
-                    <p className="text-sm font-mono text-ink-subtle px-6">
-                      {section.label ?? section.alt ?? 'Visuel du projet'}
-                    </p>
-                    {section.src && (
-                      <p className="text-[10px] font-mono text-ink-subtle/50 mt-2">
-                        → placer dans public{section.src}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </>
-            ) : (
-              // Placeholder si pas de src du tout
-              <div className="aspect-[16/7] flex items-center justify-center bg-ink/[0.03]">
+      if (!section.src) {
+        // Placeholder si pas de src
+        return (
+          <AnimatedSection delay={delay}>
+            <figure className="rounded-2xl overflow-hidden border border-ink/8 bg-ink/[0.03]">
+              <div className="aspect-[16/7] flex items-center justify-center">
                 <div className="text-center py-12">
                   <div className="text-5xl mb-4">🖼️</div>
                   <p className="text-sm font-mono text-ink-subtle px-6">
@@ -184,59 +149,27 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
                   </p>
                 </div>
               </div>
-            )}
-            {/* Caption avec label principal + caption secondaire */}
-            {(section.label || section.caption) && (
-              <figcaption className="px-5 py-4 border-t border-ink/8 flex flex-col gap-1">
-                {section.label && (
-                  <span className="text-xs font-mono font-semibold text-ink-muted">
-                    {section.label}
-                  </span>
-                )}
-                {section.caption && (
-                  <span className="text-xs font-body text-ink-subtle leading-relaxed">
-                    {section.caption}
-                  </span>
-                )}
-              </figcaption>
-            )}
-          </figure>
-        </AnimatedSection>
+            </figure>
+          </AnimatedSection>
+        )
+      }
+      return (
+        <ZoomableImage
+          src={section.src}
+          alt={section.alt ?? section.label ?? 'Visuel du projet'}
+          label={section.label}
+          caption={section.caption}
+          delay={delay}
+          externalUrl={section.externalUrl}
+          externalLabel={section.externalLabel}
+        />
       )
 
-    // ── EXISTING: image-placeholder (conservé tel quel) ───────────────────────
+    // ── image-placeholder — même comportement avec hover zoom ─────────────────
     case 'image-placeholder':
-      return (
-        <AnimatedSection delay={delay}>
-          {section.src ? (
-            <figure className="rounded-2xl overflow-hidden bg-ink/[0.02] border border-ink/8">
-              <img
-                src={resolveAssetUrl(section.src)}
-                alt={section.alt ?? section.label ?? 'Visuel du projet'}
-                className="w-full h-auto object-cover"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none'
-                  const fallback = e.currentTarget.nextElementSibling as HTMLElement | null
-                  if (fallback) fallback.classList.remove('hidden')
-                }}
-              />
-              <div className="hidden aspect-video items-center justify-center bg-ink/[0.03]">
-                <div className="text-center">
-                  <div className="text-4xl mb-3">🖼️</div>
-                  <p className="text-sm font-mono text-ink-subtle">
-                    {section.alt ?? 'Visuel du projet'}
-                  </p>
-                </div>
-              </div>
-              {section.label && (
-                <figcaption className="px-4 py-3 text-xs font-mono text-ink-subtle border-t border-ink/8">
-                  {section.label}
-                </figcaption>
-              )}
-            </figure>
-          ) : (
+      if (!section.src) {
+        return (
+          <AnimatedSection delay={delay}>
             <div className="rounded-2xl overflow-hidden bg-ink/[0.03] border border-ink/8 aspect-video flex items-center justify-center">
               <div className="text-center">
                 <div className="text-4xl mb-3">🖼️</div>
@@ -245,8 +178,19 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
                 </p>
               </div>
             </div>
-          )}
-        </AnimatedSection>
+          </AnimatedSection>
+        )
+      }
+      return (
+        <ZoomableImage
+          src={section.src}
+          alt={section.alt ?? section.label ?? 'Visuel du projet'}
+          label={section.label}
+          caption={section.caption}
+          delay={delay}
+          externalUrl={section.externalUrl}
+          externalLabel={section.externalLabel}
+        />
       )
 
     default:

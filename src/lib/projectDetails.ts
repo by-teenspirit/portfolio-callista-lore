@@ -159,6 +159,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-mindmap.jpg',
         caption:
           'Cartographie des parcours utilisateurs pour les 4 profils identifiés : novice / régulier × intermittent / porteur de projet.',
+        externalUrl: 'https://coggle.it/', // ← remplacer par l'URL Coggle du projet
+        externalLabel: 'Ouvrir dans Coggle',
         fullWidth: true,
       },
 
@@ -178,6 +180,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-userflow.jpg',
         caption:
           "De l'arrivée sur le site à la livraison du projet, en passant par le matching et la discussion.",
+        externalUrl: 'https://www.figma.com/', // ← remplacer par le lien Figma du userflow
+        externalLabel: 'Voir sur Figma',
         fullWidth: true,
       },
 
@@ -242,6 +246,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-maquettes.jpg',
         caption:
           "De gauche à droite : téléchargement de l'app, homepage entreprise, recherche de talents, dépôt de projet et dashboard.",
+        externalUrl: 'https://www.figma.com/', // ← remplacer par le lien Figma des maquettes
+        externalLabel: 'Voir sur Figma',
         fullWidth: true,
       },
 

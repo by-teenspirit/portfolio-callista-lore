@@ -54,6 +54,13 @@ export interface ProjectSection {
    * Utilisé pour les diagrammes, userflow, design system, maquettes.
    */
   fullWidth?: boolean
+  /**
+   * URL externe optionnelle (Figma, Coggle, Google Drive…)
+   * Au hover de l'image, un bouton secondaire apparaît pour y accéder.
+   */
+  externalUrl?: string
+  /** Label du bouton externe — ex: "Voir sur Figma", "Ouvrir dans Coggle" */
+  externalLabel?: string
 }
 
 export interface ProjectVersion {
