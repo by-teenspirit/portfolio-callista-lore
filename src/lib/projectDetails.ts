@@ -41,7 +41,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Comparaison avant/après — modules iDalgo',
         label: 'Avant / Après — Modules iDalgo',
-        src: '/mockups/idalgo-modules-avant.png',
+        src: '/mockups/idalgo-modules-before-after.jpg',
       },
       {
         type: 'highlight',
@@ -61,6 +61,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Scorecast — système de gamification, badges et divisions',
         label: 'Gamification Scorecast — badges & divisions',
+        src: '/mockups/scorecast-gamification.jpg',
       },
       {
         type: 'metrics',
@@ -112,15 +113,29 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'highlight',
         title: '🎯 Recherche terrain multi-acteurs',
         content:
-          'Appels auprès de producteurs, échanges avec des étudiants en cinéma (ESRA, CLCF…), consultation de juristes pour cadrer le modèle légal. Une recherche en double face de marché pour comprendre les deux côtés.',
+          'Appels auprès de producteurs, échanges avec des étudiants en cinéma (ESRA, CLCF…), consultation de juristes pour cadrer le modèle légal. Une recherche en double face de marché pour comprendre les deux côtés. Des insights riches ont émergé : les jeunes talents cherchent de la visibilité et des opportunités, tandis que les directeurs de production veulent un sourcing fiable et une gestion simplifiée.',
         color: '#0F2027',
       },
       {
         type: 'two-col',
         title: 'Livrables stratégiques',
-        left: 'Business Model Canvas, Blue Ocean Strategy, analyse concurrentielle, plan de financement initial, seuil de rentabilité, BFR, MVP, cahier des charges Lean UX.',
+        left: 'Business Model Canvas, Blue Ocean Strategy, analyse concurrentielle, plan de financement initial, seuil de rentabilité, BFR, MVP, cahier des charges Lean UX, persona détaillés, user stories, parcours utilisateur co-construits. ',
         right:
-          "Cartes d'empathie, diagrammes d'alignement, personas (réalisateur junior / directeur de production), parcours utilisateur co-construit, fonctionnalités clés.",
+          "Cartes d'empathie, diagrammes d'alignement, personas (réalisateur junior / directeur de production), parcours utilisateur co-construit, fonctionnalités clés, priorisation des features pour le MVP, plan de financement et seuil de rentabilité.",
+      },
+      {
+        type: 'highlight',
+        title: 'Insights clés',
+        content:
+          'Les jeunes talents cherchent de la visibilité et des opportunités, tandis que les directeurs de production veulent un sourcing fiable et une gestion simplifiée.',
+        color: '#1B1B2F',
+      },
+
+      {
+        type: 'quote',
+        content:
+          'Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away',
+        author: 'Antoine de Saint-Exupéry',
       },
 
       // ── 2. DIAGRAMMES D'ALIGNEMENT ────────────────────────────────────────────
@@ -156,7 +171,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-full',
         alt: 'Recherche utilisateur et mindmap Instant Prod',
         label: 'Mindmap — Recherche utilisateur',
-        src: '/mockups/instant-prod-mindmap.jpg',
+        src: '/mockups/instant-prod-mindmap.png',
         caption:
           'Cartographie des parcours utilisateurs pour les 4 profils identifiés : novice / régulier × intermittent / porteur de projet.',
         externalUrl: 'https://coggle.it/', // ← remplacer par l'URL Coggle du projet
@@ -279,7 +294,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       'Présentation finale devant un jury professionnel',
     ],
     learnings:
-      "Ce projet m'a appris que la gestion des délais serrés et du travail en équipe est aussi complexe que la conception du produit. Un bon projet centré utilisateur demande de l'itération, de l'adaptation et de remettre en question ses propres idées — même quand c'est inconfortable.",
+      "Ce projet m'a appris que la gestion des délais serrés et du travail en équipe est aussi complexe que la conception du produit. Un bon projet centré utilisateur demande de l'itération, de l'adaptation et de remettre en question ses propres idées — même quand c'est inconfortable. J'ai aussi découvert la richesse de la recherche terrain et l'importance de comprendre les deux faces d'un marché pour concevoir une solution qui fonctionne vraiment.",
     tools: [
       { label: 'Figma', logo: '/tools/figma.svg' },
       { label: 'Notion', logo: '/tools/notion.svg' },

@@ -19,8 +19,8 @@ export interface ProjectSection {
    * text           — paragraphe simple
    * highlight      — bloc coloré mis en avant
    * image-placeholder — image avec fallback 4:3 (ratio vidéo)
-   * image-full     — image pleine largeur avec caption enrichie ✨ NEW
-   * section-title  — séparateur visuel avec badge label   ✨ NEW
+   * image-full     — image pleine largeur avec caption enrichie
+   * section-title  — séparateur visuel avec badge label
    * two-col        — deux colonnes côte à côte
    * quote          — citation avec auteur
    * metrics        — grille de chiffres clés
