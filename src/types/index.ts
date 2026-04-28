@@ -15,7 +15,26 @@ export type ProjectTag =
 // ─── Project detail blocks ───────────────────────────────────────────────────
 
 export interface ProjectSection {
-  type: 'text' | 'highlight' | 'image-placeholder' | 'two-col' | 'quote' | 'metrics'
+  /**
+   * text           — paragraphe simple
+   * highlight      — bloc coloré mis en avant
+   * image-placeholder — image avec fallback 4:3 (ratio vidéo)
+   * image-full     — image pleine largeur avec caption enrichie ✨ NEW
+   * section-title  — séparateur visuel avec badge label   ✨ NEW
+   * two-col        — deux colonnes côte à côte
+   * quote          — citation avec auteur
+   * metrics        — grille de chiffres clés
+   */
+  type:
+    | 'text'
+    | 'highlight'
+    | 'image-placeholder'
+    | 'image-full'
+    | 'section-title'
+    | 'two-col'
+    | 'quote'
+    | 'metrics'
+
   title?: string
   content?: string
   left?: string
@@ -24,8 +43,12 @@ export interface ProjectSection {
   author?: string
   color?: string
   alt?: string
+  /** Libellé court affiché dans la légende ou le badge label */
   label?: string
+  /** Chemin vers /public/mockups/*.jpg — ou URL externe */
   src?: string
+  /** Caption secondaire (plus long que label) — utilisé par image-full */
+  caption?: string
 }
 
 export interface ProjectVersion {

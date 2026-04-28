@@ -3,6 +3,15 @@ import type { ProjectDetail } from '@/types'
 // ─── Detailed content per project slug ──────────────────────────────────────
 // 📁 Images maquettes : déposer dans public/mockups/ puis référencer avec src="/mockups/nom.png"
 // 🏢 Vrais logos : déposer dans public/logos/ puis référencer dans companies[].logo
+//
+// ─── INSTANT PROD — images à placer dans public/mockups/ ─────────────────────
+// public/mockups/instant-prod-design-system.jpg  ← A4_-_2.jpg  (palette couleurs + illustrations 3D)
+// public/mockups/instant-prod-logos.jpg          ← A4_-_3.jpg  (variations du logo)
+// public/mockups/instant-prod-components.jpg     ← A4_-_4.jpg  (boutons, marges, composants)
+// public/mockups/instant-prod-maquettes.jpg      ← depuis le PDF maquettes (export manuel Figma)
+// public/mockups/instant-prod-diagramme-micro.jpg ← export PDF diagramme d'alignement p.1
+// public/mockups/instant-prod-diagramme-porteur.jpg ← export PDF diagramme d'alignement p.2
+// public/mockups/instant-prod-userflow.jpg       ← export PDF userflow
 
 export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
   'idalgo-scorecast': {
@@ -86,6 +95,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
   },
 
+  // ─────────────────────────────────────────────────────────────────────────────
+  // INSTANT PROD
+  // ─────────────────────────────────────────────────────────────────────────────
   'instant-prod': {
     context:
       "Projet entrepreneurial universitaire en groupe de 5 (avec le Campus Fonderie de l'Image), de mars à juin 2024. L'un des membres, passionné de cinéma, a mis en lumière une problématique forte : les jeunes cinéastes peinent à entrer en contact avec des producteurs. Instant Prod est né de là — une plateforme de mise en relation entre jeunes talents de l'audiovisuel et directeurs de production, inspirée de Malt.",
@@ -95,9 +107,10 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     challenge:
       "Concevoir une plateforme de confiance dans un secteur très relationnel où le bouche-à-oreille domine, tout en convaincant deux types d'utilisateurs très différents — jeunes talents précaires et directeurs de production expérimentés.",
     process: [
+      // ── 1. RECHERCHE ──────────────────────────────────────────────────────────
       {
         type: 'highlight',
-        title: 'Recherche terrain multi-acteurs',
+        title: '🎯 Recherche terrain multi-acteurs',
         content:
           'Appels auprès de producteurs, échanges avec des étudiants en cinéma (ESRA, CLCF…), consultation de juristes pour cadrer le modèle légal. Une recherche en double face de marché pour comprendre les deux côtés.',
         color: '#0F2027',
@@ -109,34 +122,125 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         right:
           "Cartes d'empathie, diagrammes d'alignement, personas (réalisateur junior / directeur de production), parcours utilisateur co-construit, fonctionnalités clés.",
       },
+
+      // ── 2. DIAGRAMMES D'ALIGNEMENT ────────────────────────────────────────────
       {
-        type: 'image-placeholder',
-        alt: "Instant Prod — personas et cartes d'empathie",
-        label: 'Personas — Réalisateur & Directeur de prod',
+        type: 'section-title',
+        label: "Diagrammes d'alignement",
+        title: 'Comprendre les deux faces du marché',
+        content:
+          'Pour chaque persona, nous avons cartographié les besoins, les attentes et les fonctionnalités associées — afin de construire une plateforme qui sert réellement les deux côtés.',
+      },
+      {
+        type: 'image-full',
+        alt: "Diagramme d'alignement — Micro-entrepreneur spécialisé dans la vidéo",
+        label: "Diagramme d'alignement · Persona 1 — Micro-entrepreneur vidéo",
+        src: '/mockups/instant-prod-diagramme-micro.jpg',
+        caption:
+          'Besoins, attentes et fonctionnalités pour les intermittents du spectacle et jeunes cinéastes.',
+      },
+      {
+        type: 'image-full',
+        alt: "Diagramme d'alignement — Porteurs de projets",
+        label: "Diagramme d'alignement · Persona 2 — Porteur de projet",
+        src: '/mockups/instant-prod-diagramme-porteur.jpg',
+        caption:
+          'Besoins, attentes et fonctionnalités pour les directeurs de production et porteurs de projets.',
+      },
+
+      // ── 3. MINDMAP ────────────────────────────────────────────────────────────
+      {
+        type: 'image-full',
+        alt: 'Recherche utilisateur et mindmap Instant Prod',
+        label: 'Mindmap — Recherche utilisateur',
+        src: '/mockups/instant-prod-mindmap.jpg',
+        caption:
+          'Cartographie des parcours utilisateurs pour les 4 profils identifiés : novice / régulier × intermittent / porteur de projet.',
+      },
+
+      // ── 4. USERFLOW ───────────────────────────────────────────────────────────
+      {
+        type: 'section-title',
+        label: 'Userflow',
+        title: 'Parcours utilisateur principal',
+        content:
+          "Le userflow principal couvre la découverte de la plateforme jusqu'à la livraison d'un projet — en passant par la création de compte, la recherche de talents et la planification d'un rendez-vous.",
+      },
+      {
+        type: 'image-full',
+        alt: 'Userflow — parcours principal Instant Prod',
+        label: 'Userflow — de la découverte à la livraison',
+        src: '/mockups/instant-prod-userflow.jpg',
+        caption:
+          "De l'arrivée sur le site à la livraison du projet, en passant par le matching et la discussion.",
+      },
+
+      // ── 5. DESIGN SYSTEM ──────────────────────────────────────────────────────
+      {
+        type: 'section-title',
+        label: 'Design system',
+        title: 'Identité visuelle & composants',
+        content:
+          'Un design system cohérent construit autour de la palette InstantProd — bleu primaire, lavande, coral et pêche — avec une typographie Kollektif / Roboto et des composants réutilisables.',
       },
       {
         type: 'two-col',
-        title: 'Design system Instant Prod',
-        left: 'Palette : bleu #3C55DA (primaire), lavande #D9E1FF, coral #F09375, pêche #FFD2BB. Typographie : Kollektif (titres) + Roboto (corps). Iconographie cohérente.',
+        title: 'Palette & Typographie',
+        left: 'Palette : bleu #3C55DA (primaire, confiance & professionnalisme), lavande #D9E1FF (surface secondaire), coral #F09375 (accent chaleureux), pêche #FFD2BB (fond doux). Typographie : Kollektif H3 pour les titres percutants, Roboto pour la lisibilité du corps.',
         right:
-          'Composants : boutons 3 états (défaut, survol, désactivé), variantes secondaire/tertiaire, filtres multi-critères, cards talents avec compétences et TJM, bottom navigation.',
+          "Iconographie cohérente issue d'une même librairie. Marges et grilles définies pour le mobile (l'app est mobile-first). Illustrations 3D sur fond de blob coloré pour donner vie aux espaces vides et renforcer l'identité visuelle.",
       },
       {
-        type: 'image-placeholder',
-        alt: 'Instant Prod — homepage et recherche de talents',
-        label: 'Homepage & Recherche — Instant Prod',
+        type: 'image-full',
+        alt: 'Design system Instant Prod — palette couleurs, logo et illustrations 3D',
+        label: 'Design system · Couleurs, logo & illustrations',
+        src: '/mockups/instant-prod-design-system.jpg',
+        caption:
+          'Palette de couleurs #3C55DA · #D9E1FF · #F09375 · #FFD2BB, variations du logo et illustrations 3D.',
       },
       {
-        type: 'image-placeholder',
-        alt: 'Instant Prod — dashboard micro-entrepreneur',
-        label: 'Dashboard — Espace micro-entrepreneur',
+        type: 'image-full',
+        alt: 'Design system Instant Prod — variations du logo InstantProd',
+        label: 'Design system · Variations du logo',
+        src: '/mockups/instant-prod-logos.jpg',
+        caption:
+          'Le logo InstantProd décliné sur fond blanc, noir, bleu primaire et pêche — pour toutes les surfaces.',
       },
+      {
+        type: 'image-full',
+        alt: 'Design system Instant Prod — boutons, marges et composants UI',
+        label: 'Design system · Boutons, marges & composants',
+        src: '/mockups/instant-prod-components.jpg',
+        caption:
+          'États des boutons (défaut, survol, désactivé), marges, filtres, choix et bottom navigation.',
+      },
+
+      // ── 6. MAQUETTES ──────────────────────────────────────────────────────────
+      {
+        type: 'section-title',
+        label: 'Maquettes finales',
+        title: 'Prototype haute fidélité',
+        content:
+          'Les maquettes finales couvrent les 5 écrans clés du parcours utilisateur principal : onboarding, homepage, recherche de talents, dépôt de projet et dashboard.',
+      },
+      {
+        type: 'image-full',
+        alt: 'Maquettes finales Instant Prod — 5 écrans clés du parcours',
+        label: 'Maquettes finales — Onboarding · Homepage · Recherche · Projet · Dashboard',
+        src: '/mockups/instant-prod-maquettes.jpg',
+        caption:
+          "De gauche à droite : téléchargement de l'app, homepage entreprise, recherche de talents, dépôt de projet et dashboard.",
+      },
+
+      // ── 7. QUOTE ──────────────────────────────────────────────────────────────
       {
         type: 'quote',
         content:
           "« Le travail en équipe demande de la diplomatie, de l'écoute et la capacité à faire des compromis éclairés pour servir l'intérêt collectif. »",
         author: 'Retour personnel — Callista Loré',
       },
+
+      // ── 8. METRICS ────────────────────────────────────────────────────────────
       {
         type: 'metrics',
         metrics: [

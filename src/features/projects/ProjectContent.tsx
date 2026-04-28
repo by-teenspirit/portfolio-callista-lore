@@ -36,6 +36,34 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── NEW: section-title — séparateur visuel avec label/badge ───────────────
+    case 'section-title':
+      return (
+        <AnimatedSection delay={delay}>
+          <div className="relative flex items-center gap-5 py-2 mt-6 mb-2">
+            {/* Ligne décorative */}
+            <div className="flex-1 h-px bg-gradient-to-r from-ink/8 to-transparent" />
+            {/* Badge label */}
+            {section.label && (
+              <span className="flex-shrink-0 text-[10px] font-mono font-semibold text-brand-orange tracking-[0.15em] uppercase px-3 py-1 rounded-full border border-brand-orange/20 bg-brand-orange/5">
+                {section.label}
+              </span>
+            )}
+            <div className="flex-1 h-px bg-gradient-to-l from-ink/8 to-transparent" />
+          </div>
+          {section.title && (
+            <h3 className="font-display font-bold text-ink text-2xl mb-3 text-center">
+              {section.title}
+            </h3>
+          )}
+          {section.content && (
+            <p className="font-body text-ink-muted leading-relaxed text-sm text-center max-w-2xl mx-auto">
+              {section.content}
+            </p>
+          )}
+        </AnimatedSection>
+      )
+
     case 'highlight':
       return (
         <AnimatedSection delay={delay}>
@@ -110,6 +138,73 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── NEW: image-full — image pleine largeur avec caption stylée ────────────
+    case 'image-full':
+      return (
+        <AnimatedSection delay={delay}>
+          <figure className="rounded-2xl overflow-hidden border border-ink/8 bg-ink/[0.02]">
+            {section.src ? (
+              <>
+                <img
+                  src={resolveAssetUrl(section.src)}
+                  alt={section.alt ?? section.label ?? 'Visuel du projet'}
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    // Fallback gracieux si l'image n'est pas encore en place
+                    const el = e.currentTarget
+                    el.style.display = 'none'
+                    const fallback = el.nextElementSibling as HTMLElement | null
+                    if (fallback) fallback.classList.remove('hidden')
+                  }}
+                />
+                {/* Fallback affiché uniquement si l'image échoue */}
+                <div className="hidden aspect-[16/7] flex items-center justify-center bg-ink/[0.03]">
+                  <div className="text-center py-12">
+                    <div className="text-5xl mb-4">🖼️</div>
+                    <p className="text-sm font-mono text-ink-subtle px-6">
+                      {section.label ?? section.alt ?? 'Visuel du projet'}
+                    </p>
+                    {section.src && (
+                      <p className="text-[10px] font-mono text-ink-subtle/50 mt-2">
+                        → placer dans public{section.src}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </>
+            ) : (
+              // Placeholder si pas de src du tout
+              <div className="aspect-[16/7] flex items-center justify-center bg-ink/[0.03]">
+                <div className="text-center py-12">
+                  <div className="text-5xl mb-4">🖼️</div>
+                  <p className="text-sm font-mono text-ink-subtle px-6">
+                    {section.label ?? section.alt ?? 'Visuel du projet'}
+                  </p>
+                </div>
+              </div>
+            )}
+            {/* Caption avec label principal + caption secondaire */}
+            {(section.label || section.caption) && (
+              <figcaption className="px-5 py-4 border-t border-ink/8 flex flex-col gap-1">
+                {section.label && (
+                  <span className="text-xs font-mono font-semibold text-ink-muted">
+                    {section.label}
+                  </span>
+                )}
+                {section.caption && (
+                  <span className="text-xs font-body text-ink-subtle leading-relaxed">
+                    {section.caption}
+                  </span>
+                )}
+              </figcaption>
+            )}
+          </figure>
+        </AnimatedSection>
+      )
+
+    // ── EXISTING: image-placeholder (conservé tel quel) ───────────────────────
     case 'image-placeholder':
       return (
         <AnimatedSection delay={delay}>
