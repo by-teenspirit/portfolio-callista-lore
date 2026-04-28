@@ -8,6 +8,7 @@ import { ProjectNavigation } from './ProjectNavigation'
 import { VersionTimeline } from './VersionTimeline'
 import { BeforeAfterBanner } from './BeforeAfterBanner'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import type { ProjectSection } from '@/types'
 
 interface ProjectPageProps {
   slug: string
@@ -59,6 +60,22 @@ export function ProjectPage({ slug }: ProjectPageProps) {
     )
   }
 
+  // ── Sépare les sections en deux groupes ────────────────────────────────────
+  // "intro" : sections WITHOUT fullWidth → restent dans la grille avec la sidebar
+  // "wide"  : sections WITH fullWidth → sortent en pleine largeur sous la grille
+  const introSections: ProjectSection[] = []
+  const wideSections: ProjectSection[] = []
+  let wideStarted = false
+
+  for (const section of detail.process) {
+    if (!wideStarted && !section.fullWidth) {
+      introSections.push(section)
+    } else {
+      wideStarted = true
+      wideSections.push(section)
+    }
+  }
+
   return (
     <article>
       {/* Hero */}
@@ -98,22 +115,47 @@ export function ProjectPage({ slug }: ProjectPageProps) {
             </AnimatedSection>
           )}
 
-          <div className="grid lg:grid-cols-[1fr_300px] gap-12">
-            {/* Left — process */}
-            <div>
-              <AnimatedSection className="mb-10">
-                <p className="text-xs font-mono text-brand-orange tracking-widest uppercase mb-2">
-                  Démarche
-                </p>
-                <h2 className="heading-md text-ink">Processus de design</h2>
-              </AnimatedSection>
-              <ProjectContent sections={detail.process} />
-            </div>
+          {/* ── ZONE 1 : Grille avec sidebar (sections intro) ─────────────────── */}
+          {introSections.length > 0 && (
+            <div className="grid lg:grid-cols-[1fr_300px] gap-12">
+              {/* Colonne gauche — intro process */}
+              <div>
+                <AnimatedSection className="mb-10">
+                  <p className="text-xs font-mono text-brand-orange tracking-widest uppercase mb-2">
+                    Démarche
+                  </p>
+                  <h2 className="heading-md text-ink">Processus de design</h2>
+                </AnimatedSection>
+                <ProjectContent sections={introSections} />
+              </div>
 
-            {/* Right — sidebar */}
-            <ProjectSidebar detail={detail} />
-          </div>
+              {/* Colonne droite — sidebar (toujours présente) */}
+              <ProjectSidebar detail={detail} />
+            </div>
+          )}
+
+          {/* Si pas de sections intro, afficher quand même la sidebar + le titre */}
+          {introSections.length === 0 && (
+            <div className="grid lg:grid-cols-[1fr_300px] gap-12 mb-12">
+              <div>
+                <AnimatedSection>
+                  <p className="text-xs font-mono text-brand-orange tracking-widest uppercase mb-2">
+                    Démarche
+                  </p>
+                  <h2 className="heading-md text-ink">Processus de design</h2>
+                </AnimatedSection>
+              </div>
+              <ProjectSidebar detail={detail} />
+            </div>
+          )}
         </div>
+
+        {/* ── ZONE 2 : Pleine largeur (sections fullWidth) ────────────────────── */}
+        {wideSections.length > 0 && (
+          <div className="section-container mt-16">
+            <ProjectContent sections={wideSections} />
+          </div>
+        )}
       </div>
 
       {/* Prev / Next */}

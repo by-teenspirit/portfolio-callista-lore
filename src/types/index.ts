@@ -49,6 +49,11 @@ export interface ProjectSection {
   src?: string
   /** Caption secondaire (plus long que label) — utilisé par image-full */
   caption?: string
+  /**
+   * Si true, la section sort de la grille sidebar et prend toute la largeur.
+   * Utilisé pour les diagrammes, userflow, design system, maquettes.
+   */
+  fullWidth?: boolean
 }
 
 export interface ProjectVersion {

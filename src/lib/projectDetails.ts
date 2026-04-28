@@ -130,6 +130,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         title: 'Comprendre les deux faces du marché',
         content:
           'Pour chaque persona, nous avons cartographié les besoins, les attentes et les fonctionnalités associées — afin de construire une plateforme qui sert réellement les deux côtés.',
+        fullWidth: true,
       },
       {
         type: 'image-full',
@@ -138,6 +139,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-diagramme-micro.jpg',
         caption:
           'Besoins, attentes et fonctionnalités pour les intermittents du spectacle et jeunes cinéastes.',
+        fullWidth: true,
       },
       {
         type: 'image-full',
@@ -146,6 +148,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-diagramme-porteur.jpg',
         caption:
           'Besoins, attentes et fonctionnalités pour les directeurs de production et porteurs de projets.',
+        fullWidth: true,
       },
 
       // ── 3. MINDMAP ────────────────────────────────────────────────────────────
@@ -156,6 +159,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-mindmap.jpg',
         caption:
           'Cartographie des parcours utilisateurs pour les 4 profils identifiés : novice / régulier × intermittent / porteur de projet.',
+        fullWidth: true,
       },
 
       // ── 4. USERFLOW ───────────────────────────────────────────────────────────
@@ -165,6 +169,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         title: 'Parcours utilisateur principal',
         content:
           "Le userflow principal couvre la découverte de la plateforme jusqu'à la livraison d'un projet — en passant par la création de compte, la recherche de talents et la planification d'un rendez-vous.",
+        fullWidth: true,
       },
       {
         type: 'image-full',
@@ -173,6 +178,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-userflow.jpg',
         caption:
           "De l'arrivée sur le site à la livraison du projet, en passant par le matching et la discussion.",
+        fullWidth: true,
       },
 
       // ── 5. DESIGN SYSTEM ──────────────────────────────────────────────────────
@@ -182,6 +188,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         title: 'Identité visuelle & composants',
         content:
           'Un design system cohérent construit autour de la palette InstantProd — bleu primaire, lavande, coral et pêche — avec une typographie Kollektif / Roboto et des composants réutilisables.',
+        fullWidth: true,
       },
       {
         type: 'two-col',
@@ -189,6 +196,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         left: 'Palette : bleu #3C55DA (primaire, confiance & professionnalisme), lavande #D9E1FF (surface secondaire), coral #F09375 (accent chaleureux), pêche #FFD2BB (fond doux). Typographie : Kollektif H3 pour les titres percutants, Roboto pour la lisibilité du corps.',
         right:
           "Iconographie cohérente issue d'une même librairie. Marges et grilles définies pour le mobile (l'app est mobile-first). Illustrations 3D sur fond de blob coloré pour donner vie aux espaces vides et renforcer l'identité visuelle.",
+        fullWidth: true,
       },
       {
         type: 'image-full',
@@ -197,6 +205,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-design-system.jpg',
         caption:
           'Palette de couleurs #3C55DA · #D9E1FF · #F09375 · #FFD2BB, variations du logo et illustrations 3D.',
+        fullWidth: true,
       },
       {
         type: 'image-full',
@@ -205,6 +214,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-logos.jpg',
         caption:
           'Le logo InstantProd décliné sur fond blanc, noir, bleu primaire et pêche — pour toutes les surfaces.',
+        fullWidth: true,
       },
       {
         type: 'image-full',
@@ -213,6 +223,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-components.jpg',
         caption:
           'États des boutons (défaut, survol, désactivé), marges, filtres, choix et bottom navigation.',
+        fullWidth: true,
       },
 
       // ── 6. MAQUETTES ──────────────────────────────────────────────────────────
@@ -222,6 +233,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         title: 'Prototype haute fidélité',
         content:
           'Les maquettes finales couvrent les 5 écrans clés du parcours utilisateur principal : onboarding, homepage, recherche de talents, dépôt de projet et dashboard.',
+        fullWidth: true,
       },
       {
         type: 'image-full',
@@ -230,6 +242,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         src: '/mockups/instant-prod-maquettes.jpg',
         caption:
           "De gauche à droite : téléchargement de l'app, homepage entreprise, recherche de talents, dépôt de projet et dashboard.",
+        fullWidth: true,
       },
 
       // ── 7. QUOTE ──────────────────────────────────────────────────────────────
@@ -238,6 +251,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         content:
           "« Le travail en équipe demande de la diplomatie, de l'écoute et la capacité à faire des compromis éclairés pour servir l'intérêt collectif. »",
         author: 'Retour personnel — Callista Loré',
+        fullWidth: true,
       },
 
       // ── 8. METRICS ────────────────────────────────────────────────────────────
@@ -249,6 +263,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
           { value: '2', label: 'faces du marché adressées' },
           { value: '★', label: 'Valorisé par les professeurs' },
         ],
+        fullWidth: true,
       },
     ],
     outcomes: [
