@@ -4,18 +4,12 @@ import { ExternalLink, Maximize2 } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 
 interface ZoomableImageProps {
-  /** Chemin /mockups/... ou URL externe */
   src: string
   alt: string
   label?: string
   caption?: string
   delay?: number
-  /**
-   * URL externe optionnelle (Figma, Coggle, Google Drive…)
-   * Si fournie, le bouton secondaire renvoie vers ce lien plutôt que l'image.
-   */
   externalUrl?: string
-  /** Label du bouton externe — ex: "Voir sur Figma", "Ouvrir dans Coggle" */
   externalLabel?: string
 }
 
@@ -38,15 +32,10 @@ export function ZoomableImage({
   }
 
   const imageSrc = resolveUrl(src)
-  // Lien principal : l'image elle-même en pleine résolution
-  const primaryUrl = imageSrc
-  // Lien secondaire : URL externe si fournie
-  const secondaryUrl = externalUrl ?? null
 
   return (
     <AnimatedSection delay={delay}>
       <figure className="rounded-2xl overflow-hidden border border-ink/8 bg-ink/[0.02]">
-        {/* Zone image cliquable */}
         <div
           className="relative cursor-pointer group"
           onMouseEnter={() => setHovered(true)}
@@ -63,7 +52,6 @@ export function ZoomableImage({
               onError={() => setImgError(true)}
             />
           ) : (
-            /* Fallback si image absente */
             <div className="aspect-[16/7] flex items-center justify-center bg-ink/[0.03]">
               <div className="text-center py-12">
                 <div className="text-5xl mb-4">🖼️</div>
@@ -75,7 +63,6 @@ export function ZoomableImage({
             </div>
           )}
 
-          {/* Overlay hover — visible uniquement si l'image est chargée */}
           <AnimatePresence>
             {hovered && !imgError && (
               <motion.div
@@ -85,7 +72,6 @@ export function ZoomableImage({
                 transition={{ duration: 0.18 }}
                 className="absolute inset-0 flex flex-col items-center justify-center gap-4 pointer-events-none"
               >
-                {/* Icône centrale */}
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -100,9 +86,7 @@ export function ZoomableImage({
                     Ouvrir en grand
                   </span>
                 </motion.div>
-
-                {/* Bouton secondaire — uniquement si externalUrl fournie */}
-                {secondaryUrl && (
+                {externalUrl && (
                   <motion.div
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -118,10 +102,9 @@ export function ZoomableImage({
             )}
           </AnimatePresence>
 
-          {/* Lien principal (toute la zone) — ouvre l'image en pleine résolution */}
           {!imgError && (
             <a
-              href={primaryUrl}
+              href={imageSrc}
               target="_blank"
               rel="noopener noreferrer"
               className="absolute inset-0"
@@ -131,8 +114,7 @@ export function ZoomableImage({
           )}
         </div>
 
-        {/* Caption */}
-        {(label || caption || secondaryUrl) && (
+        {(label || caption || externalUrl) && (
           <figcaption className="px-5 py-3 border-t border-ink/8 flex items-start justify-between gap-4">
             <div className="flex flex-col gap-0.5 min-w-0">
               {label && (
@@ -144,15 +126,12 @@ export function ZoomableImage({
                 <span className="text-xs font-body text-ink-subtle leading-relaxed">{caption}</span>
               )}
             </div>
-
-            {/* Bouton lien externe dans la caption */}
-            {secondaryUrl && (
+            {externalUrl && (
               <a
-                href={secondaryUrl}
+                href={externalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-ink/10 text-ink-subtle hover:border-brand-orange/40 hover:text-brand-orange transition-colors duration-200 text-[11px] font-mono whitespace-nowrap"
-                aria-label={externalLabel}
               >
                 <ExternalLink size={10} />
                 {externalLabel}

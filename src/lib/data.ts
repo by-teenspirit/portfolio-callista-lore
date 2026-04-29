@@ -27,8 +27,7 @@ export const PROJECTS: Project[] = [
     description:
       "Refonte des modules iDalgo pour la presse sportive. Réflexion de gamification sur l'application Scorecast : système de pronostics entre amis. Réponse à un appel d'offre pour le CCI du Gers.",
     tags: ['UX Design', 'Gamification', 'Front-End'],
-    coverColor: '#1A1A2E',
-    coverEmoji: '⚽',
+    coverImage: '/covers/scorecast-gamification.png',
     featured: true,
     year: 2025,
     isNew: true,
@@ -41,8 +40,7 @@ export const PROJECTS: Project[] = [
     description:
       'Projet entrepreneurial de mise en relation de jeunes diplômés de cinéma et de directeurs de production. UX Research approfondie pour comprendre les besoins des deux côtés du marché.',
     tags: ['UX Research', 'Gestion de projet'],
-    coverColor: '#0F2027',
-    coverEmoji: '🎬',
+    coverImage: '/covers/instant-prod-maquettes.jpg',
     featured: true,
     year: 2024,
   },

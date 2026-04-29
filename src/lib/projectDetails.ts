@@ -218,31 +218,28 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         fullWidth: true,
       },
       {
-        type: 'image-full',
-        alt: 'Design system Instant Prod — palette couleurs, logo et illustrations 3D',
-        label: 'Design system · Couleurs, logo & illustrations',
-        src: '/mockups/instant-prod-design-system.jpg',
-        caption:
-          'Palette de couleurs #3C55DA · #D9E1FF · #F09375 · #FFD2BB, variations du logo et illustrations 3D.',
+        type: 'image-trio',
         fullWidth: true,
-      },
-      {
-        type: 'image-full',
-        alt: 'Design system Instant Prod — variations du logo InstantProd',
-        label: 'Design system · Variations du logo',
-        src: '/mockups/instant-prod-logos.jpg',
-        caption:
-          'Le logo InstantProd décliné sur fond blanc, noir, bleu primaire et pêche — pour toutes les surfaces.',
-        fullWidth: true,
-      },
-      {
-        type: 'image-full',
-        alt: 'Design system Instant Prod — boutons, marges et composants UI',
-        label: 'Design system · Boutons, marges & composants',
-        src: '/mockups/instant-prod-components.jpg',
-        caption:
-          'États des boutons (défaut, survol, désactivé), marges, filtres, choix et bottom navigation.',
-        fullWidth: true,
+        images: [
+          {
+            src: '/mockups/instant-prod-design-system.jpg',
+            alt: 'Design system — palette couleurs & illustrations 3D',
+            label: 'Couleurs & illustrations',
+            caption: 'Palette #3C55DA · #D9E1FF · #F09375 · #FFD2BB',
+          },
+          {
+            src: '/mockups/instant-prod-logos.jpg',
+            alt: 'Design system — variations du logo InstantProd',
+            label: 'Variations du logo',
+            caption: 'Déclinaisons fond blanc, noir, bleu et pêche',
+          },
+          {
+            src: '/mockups/instant-prod-components.jpg',
+            alt: 'Design system — boutons, marges et composants UI',
+            label: 'Boutons & composants',
+            caption: 'États défaut, survol, désactivé, filtres, bottom nav',
+          },
+        ],
       },
 
       // ── 6. MAQUETTES ──────────────────────────────────────────────────────────

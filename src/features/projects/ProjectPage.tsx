@@ -4,7 +4,7 @@ import { useProject } from '@/hooks/useProject'
 import { ProjectHero } from './ProjectHero'
 import { ProjectContent } from './ProjectContent'
 import { ProjectSidebar } from './ProjectSidebar'
-import { ProjectNavigation } from './ProjectNavigation'
+import { ProjectNavigation, ProjectTopNav } from './ProjectNavigation'
 import { VersionTimeline } from './VersionTimeline'
 import { BeforeAfterBanner } from './BeforeAfterBanner'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
@@ -60,9 +60,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
     )
   }
 
-  // ── Sépare les sections en deux groupes ────────────────────────────────────
-  // "intro" : sections WITHOUT fullWidth → restent dans la grille avec la sidebar
-  // "wide"  : sections WITH fullWidth → sortent en pleine largeur sous la grille
+  // ── Sépare les sections en deux groupes ──────────────────────────────────
   const introSections: ProjectSection[] = []
   const wideSections: ProjectSection[] = []
   let wideStarted = false
@@ -78,6 +76,9 @@ export function ProjectPage({ slug }: ProjectPageProps) {
 
   return (
     <article>
+      {/* Barre de navigation discrète entre projets */}
+      <ProjectTopNav prev={prev} next={next} />
+
       {/* Hero */}
       <ProjectHero project={project} detail={detail} />
 
@@ -98,14 +99,11 @@ export function ProjectPage({ slug }: ProjectPageProps) {
       {/* Main content */}
       <div className="py-20">
         <div className="section-container">
-          {/* Versions timeline (V1 → V2) */}
           {detail.versions && detail.versions.length > 0 && (
             <AnimatedSection className="mb-4">
               <VersionTimeline versions={detail.versions} />
             </AnimatedSection>
           )}
-
-          {/* Before / After banner */}
           {detail.beforeAfter && (
             <AnimatedSection className="mb-4">
               <BeforeAfterBanner
@@ -115,10 +113,8 @@ export function ProjectPage({ slug }: ProjectPageProps) {
             </AnimatedSection>
           )}
 
-          {/* ── ZONE 1 : Grille avec sidebar (sections intro) ─────────────────── */}
-          {introSections.length > 0 && (
+          {introSections.length > 0 ? (
             <div className="grid lg:grid-cols-[1fr_300px] gap-12">
-              {/* Colonne gauche — intro process */}
               <div>
                 <AnimatedSection className="mb-10">
                   <p className="text-xs font-mono text-brand-orange tracking-widest uppercase mb-2">
@@ -128,14 +124,9 @@ export function ProjectPage({ slug }: ProjectPageProps) {
                 </AnimatedSection>
                 <ProjectContent sections={introSections} />
               </div>
-
-              {/* Colonne droite — sidebar (toujours présente) */}
               <ProjectSidebar detail={detail} />
             </div>
-          )}
-
-          {/* Si pas de sections intro, afficher quand même la sidebar + le titre */}
-          {introSections.length === 0 && (
+          ) : (
             <div className="grid lg:grid-cols-[1fr_300px] gap-12 mb-12">
               <div>
                 <AnimatedSection>
@@ -150,7 +141,6 @@ export function ProjectPage({ slug }: ProjectPageProps) {
           )}
         </div>
 
-        {/* ── ZONE 2 : Pleine largeur (sections fullWidth) ────────────────────── */}
         {wideSections.length > 0 && (
           <div className="section-container mt-16">
             <ProjectContent sections={wideSections} />
@@ -158,7 +148,6 @@ export function ProjectPage({ slug }: ProjectPageProps) {
         )}
       </div>
 
-      {/* Prev / Next */}
       <ProjectNavigation prev={prev} next={next} />
     </article>
   )

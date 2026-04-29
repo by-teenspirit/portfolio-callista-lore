@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar, Users } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { Tag } from '@/components/ui/Tag'
+import { ToolLogo } from '@/components/ui/ToolLogo'
 import type { Project, ProjectDetail } from '@/types'
 
 interface ProjectHeroProps {
@@ -9,16 +10,18 @@ interface ProjectHeroProps {
   detail: ProjectDetail
 }
 
-const resolveLogoUrl = (logo: string): string => {
-  if (logo.startsWith('http://') || logo.startsWith('https://')) return logo
+const resolveUrl = (path: string): string => {
+  if (path.startsWith('http://') || path.startsWith('https://')) return path
   const base = (import.meta.env.BASE_URL ?? '/').replace(/\/+$/, '')
-  return `${base}${logo.startsWith('/') ? logo : `/${logo}`}`
+  return `${base}${path.startsWith('/') ? path : `/${path}`}`
 }
 
 export function ProjectHero({ project, detail }: ProjectHeroProps) {
+  const hasCompanies = detail.companies && detail.companies.length > 0
+  const hasTools = detail.tools && detail.tools.length > 0
+
   return (
     <section className="relative overflow-hidden pt-28 pb-16">
-      {/* Ambient background */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -35,7 +38,6 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
       />
 
       <div className="section-container relative z-10">
-        {/* Back link */}
         <motion.div
           initial={{ opacity: 0, x: -16 }}
           animate={{ opacity: 1, x: 0 }}
@@ -56,72 +58,8 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
         </motion.div>
 
         <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-start">
-          {/* Left — text */}
+          {/* Gauche */}
           <div>
-            {/* Company logos */}
-            {detail.companies && detail.companies.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05, duration: 0.4 }}
-                className="flex flex-wrap items-center gap-2 mb-5"
-              >
-                {detail.companies.map((company) =>
-                  company.url ? (
-                    <a
-                      key={company.name}
-                      href={company.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-ink/8 rounded-xl hover:border-brand-orange/30 transition-colors"
-                    >
-                      {company.logo ? (
-                        <img
-                          src={resolveLogoUrl(company.logo)}
-                          alt={company.name}
-                          className="h-5 w-auto"
-                          loading="lazy"
-                          decoding="async"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none'
-                            const sibling = e.currentTarget.nextElementSibling as HTMLElement | null
-                            if (sibling) sibling.classList.remove('hidden')
-                          }}
-                        />
-                      ) : null}
-                      <span className="text-xs font-mono font-semibold text-ink-muted hidden">
-                        {company.name}
-                      </span>
-                    </a>
-                  ) : (
-                    <span
-                      key={company.name}
-                      className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-ink/8 rounded-xl"
-                    >
-                      {company.logo ? (
-                        <img
-                          src={resolveLogoUrl(company.logo)}
-                          alt={company.name}
-                          className="h-5 w-auto"
-                          loading="lazy"
-                          decoding="async"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none'
-                            const sibling = e.currentTarget.nextElementSibling as HTMLElement | null
-                            if (sibling) sibling.classList.remove('hidden')
-                          }}
-                        />
-                      ) : null}
-                      <span className="text-xs font-mono font-semibold text-ink-muted hidden">
-                        {company.name}
-                      </span>
-                    </span>
-                  )
-                )}
-              </motion.div>
-            )}
-
-            {/* Tags */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -138,7 +76,6 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
               ))}
             </motion.div>
 
-            {/* Title */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -156,7 +93,6 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
               {project.subtitle}
             </motion.p>
 
-            {/* Meta */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -173,49 +109,87 @@ export function ProjectHero({ project, detail }: ProjectHeroProps) {
               </div>
             </motion.div>
 
-            {/* Tools */}
-            {detail.tools && detail.tools.length > 0 && (
+            {/* Tools — même style que About */}
+            {hasTools && (
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
-                className="flex flex-wrap gap-2"
               >
-                {detail.tools.map((tool) => (
-                  <div
-                    key={tool.label}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-ink/8 rounded-xl"
-                  >
-                    <img
-                      src={resolveLogoUrl(tool.logo)}
-                      alt={tool.label}
-                      className="w-4 h-4 object-contain"
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none'
-                        const sibling = e.currentTarget.nextElementSibling as HTMLElement | null
-                        if (sibling) sibling.classList.remove('hidden')
-                      }}
+                <p className="text-xs font-mono text-ink-subtle tracking-widest uppercase mb-3">
+                  Outils
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {detail.tools!.map((tool) => (
+                    <ToolLogo
+                      key={tool.label}
+                      tool={{ label: tool.label, logo: tool.logo }}
+                      size="sm"
+                      showLabel={true}
                     />
-                    <span className="text-xs font-mono font-medium text-ink-muted hidden">
-                      {tool.label}
-                    </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </motion.div>
             )}
           </div>
 
-          {/* Right — cover visual */}
+          {/* Droite — logos companies ou emoji fallback */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.92, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:flex w-48 h-48 rounded-3xl items-center justify-center flex-shrink-0 shadow-2xl"
-            style={{ backgroundColor: project.coverColor }}
+            className="hidden lg:flex flex-col items-center gap-4 flex-shrink-0"
           >
-            <span className="text-6xl">{project.coverEmoji}</span>
+            {hasCompanies ? (
+              <div className="flex flex-col gap-3">
+                {detail.companies!.map((company) => {
+                  const inner = (
+                    <div className="flex flex-col items-center gap-2 px-5 py-4 bg-white/80 backdrop-blur-sm border border-ink/8 rounded-2xl shadow-sm min-w-[120px] hover:border-brand-orange/25 hover:shadow-md transition-all duration-300">
+                      {company.logo ? (
+                        <img
+                          src={resolveUrl(company.logo)}
+                          alt={company.name}
+                          className="h-8 w-auto object-contain"
+                          loading="lazy"
+                          decoding="async"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none'
+                            const s = e.currentTarget.nextElementSibling as HTMLElement | null
+                            if (s) s.classList.remove('hidden')
+                          }}
+                        />
+                      ) : null}
+                      <span
+                        className={`text-xs font-mono font-semibold text-ink-muted ${company.logo ? 'hidden' : ''}`}
+                      >
+                        {company.name}
+                      </span>
+                      <span className="text-[10px] font-mono text-ink-subtle">{company.name}</span>
+                    </div>
+                  )
+                  return company.url ? (
+                    <a
+                      key={company.name}
+                      href={company.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <div key={company.name}>{inner}</div>
+                  )
+                })}
+              </div>
+            ) : (
+              <div
+                className="w-40 h-40 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-2xl"
+                style={{ backgroundColor: project.coverColor }}
+              >
+                <span className="text-6xl">{project.coverEmoji}</span>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import type { Project } from '@/types'
 
@@ -8,6 +8,60 @@ interface ProjectNavigationProps {
   next: Project | null
 }
 
+// ── Barre discrète sticky sous la navbar ─────────────────────────────────────
+export function ProjectTopNav({ prev, next }: ProjectNavigationProps) {
+  if (!prev && !next) return null
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.4 }}
+      className="sticky top-[52px] z-40 flex items-center justify-between px-4 py-1.5 bg-surface/80 backdrop-blur-sm border-b border-ink/5"
+    >
+      {prev ? (
+        <Link
+          to="/projects/$slug"
+          params={{ slug: prev.slug }}
+          className="group flex items-center gap-1.5 text-ink-subtle hover:text-ink transition-colors duration-200"
+        >
+          <ChevronLeft
+            size={13}
+            className="group-hover:-translate-x-0.5 transition-transform duration-200"
+          />
+          <span className="text-[11px] font-mono truncate max-w-[120px] sm:max-w-[180px]">
+            {prev.title}
+          </span>
+        </Link>
+      ) : (
+        <div />
+      )}
+
+      <span className="text-[10px] font-mono text-ink-subtle/40 tracking-widest uppercase hidden sm:block">
+        projets
+      </span>
+
+      {next ? (
+        <Link
+          to="/projects/$slug"
+          params={{ slug: next.slug }}
+          className="group flex items-center gap-1.5 text-ink-subtle hover:text-ink transition-colors duration-200"
+        >
+          <span className="text-[11px] font-mono truncate max-w-[120px] sm:max-w-[180px] text-right">
+            {next.title}
+          </span>
+          <ChevronRight
+            size={13}
+            className="group-hover:translate-x-0.5 transition-transform duration-200"
+          />
+        </Link>
+      ) : (
+        <div />
+      )}
+    </motion.div>
+  )
+}
+
+// ── Navigation bas de page ────────────────────────────────────────────────────
 export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
   return (
     <section className="border-t border-ink/5 py-16">
