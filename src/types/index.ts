@@ -12,9 +12,48 @@ export type ProjectTag =
   | 'Refonte'
   | 'Engagement'
 
+// ─── Social posts (pour section-type 'social-grid') ─────────────────────────
+
+export interface SocialPostData {
+  /** 'single' = un visuel, 'carousel' = plusieurs slides */
+  type: 'single' | 'carousel'
+  src?: string
+  slides?: string[]
+  alt?: string
+  caption?: string
+  /** Ratio du post : carré, portrait Instagram, story */
+  ratio?: '1:1' | '4:5' | '9:16'
+}
+
+// ─── Print items (pour section-type 'print-showcase') ───────────────────────
+
+export type PrintFormat = 'A4-portrait' | 'A4-landscape' | 'kakemono' | 'A5-portrait' | 'square'
+
+export interface PrintItemData {
+  src?: string
+  alt?: string
+  label?: string
+  caption?: string
+  format: PrintFormat
+}
+
 // ─── Project detail blocks ───────────────────────────────────────────────────
 
 export interface ProjectSection {
+  /**
+   * text            — paragraphe simple
+   * highlight       — bloc coloré mis en avant
+   * image-placeholder — image avec fallback
+   * image-full      — image pleine largeur zoomable
+   * image-trio      — 3 images en 3 colonnes
+   * section-title   — séparateur visuel avec badge label
+   * two-col         — deux colonnes côte à côte
+   * quote           — citation avec auteur
+   * metrics         — grille de chiffres clés
+   * social-grid     — grille Instagram avec carrousel en lightbox
+   * print-showcase  — documents print (flyers, kakémono…) avec ratios papier
+   * card-flip       — carte de visite recto/verso avec flip 3D
+   */
   type:
     | 'text'
     | 'highlight'
@@ -25,22 +64,35 @@ export interface ProjectSection {
     | 'two-col'
     | 'quote'
     | 'metrics'
+    | 'social-grid'
+    | 'print-showcase'
+    | 'card-flip'
 
+  // ── Champs communs ──────────────────────────────────────────────────────────
   title?: string
   content?: string
+  label?: string
+  color?: string
+  fullWidth?: boolean
+
+  // ── text / highlight ────────────────────────────────────────────────────────
   left?: string
   right?: string
-  metrics?: { value: string; label: string }[]
+
+  // ── quote ────────────────────────────────────────────────────────────────────
   author?: string
-  color?: string
-  alt?: string
-  label?: string
+
+  // ── metrics ──────────────────────────────────────────────────────────────────
+  metrics?: { value: string; label: string }[]
+
+  // ── image-full / image-placeholder ──────────────────────────────────────────
   src?: string
+  alt?: string
   caption?: string
-  fullWidth?: boolean
   externalUrl?: string
   externalLabel?: string
-  /** Pour image-trio : tableau de 3 images */
+
+  // ── image-trio ───────────────────────────────────────────────────────────────
   images?: {
     src?: string
     alt?: string
@@ -49,6 +101,16 @@ export interface ProjectSection {
     externalUrl?: string
     externalLabel?: string
   }[]
+
+  // ── social-grid ──────────────────────────────────────────────────────────────
+  posts?: SocialPostData[]
+
+  // ── print-showcase ───────────────────────────────────────────────────────────
+  printItems?: PrintItemData[]
+
+  // ── card-flip ────────────────────────────────────────────────────────────────
+  cardRecto?: { src?: string; alt?: string }
+  cardVerso?: { src?: string; alt?: string }
 }
 
 export interface ProjectVersion {
@@ -95,7 +157,6 @@ export interface Project {
   /**
    * Image de couverture dans la ProjectCard.
    * Chemin /public/covers/nom.jpg ou URL.
-   * Si absent → coverEmoji sur fond coverColor.
    */
   coverImage?: string
   featured?: boolean

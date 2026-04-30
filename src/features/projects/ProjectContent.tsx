@@ -2,6 +2,9 @@ import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { ZoomableImage } from '@/components/ui/ZoomableImage'
+import { SocialGrid } from '@/components/ui/SocialGrid'
+import { PrintShowcase } from '@/components/ui/PrintShowcase'
+import { BusinessCard } from '@/components/ui/BusinessCard'
 import type { ProjectSection } from '@/types'
 
 interface ProjectContentProps {
@@ -22,6 +25,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
   const delay = Math.min(index * 0.06, 0.3)
 
   switch (section.type) {
+    // ── Texte ────────────────────────────────────────────────────────────────
     case 'text':
       return (
         <AnimatedSection delay={delay}>
@@ -32,6 +36,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── Séparateur de section ────────────────────────────────────────────────
     case 'section-title':
       return (
         <AnimatedSection delay={delay}>
@@ -57,6 +62,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── Highlight coloré ─────────────────────────────────────────────────────
     case 'highlight':
       return (
         <AnimatedSection delay={delay}>
@@ -75,6 +81,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── Deux colonnes ────────────────────────────────────────────────────────
     case 'two-col':
       return (
         <AnimatedSection delay={delay}>
@@ -92,6 +99,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── Citation ─────────────────────────────────────────────────────────────
     case 'quote':
       return (
         <AnimatedSection delay={delay}>
@@ -107,6 +115,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── Métriques ────────────────────────────────────────────────────────────
     case 'metrics':
       return (
         <AnimatedSection delay={delay}>
@@ -130,6 +139,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
 
+    // ── Image pleine largeur ─────────────────────────────────────────────────
     case 'image-full':
       if (!section.src) {
         return (
@@ -159,6 +169,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         />
       )
 
+    // ── Image placeholder ─────────────────────────────────────────────────────
     case 'image-placeholder':
       if (!section.src) {
         return (
@@ -186,7 +197,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         />
       )
 
-    // ── image-trio : 3 images en 3 colonnes ──────────────────────────────────
+    // ── Trio d'images en 3 colonnes ───────────────────────────────────────────
     case 'image-trio': {
       const imgs = section.images ?? []
       return (
@@ -225,6 +236,43 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
         </AnimatedSection>
       )
     }
+
+    // ── Grille réseaux sociaux avec lightbox et carrousel ────────────────────
+    case 'social-grid':
+      return (
+        <SocialGrid
+          posts={section.posts ?? []}
+          label={section.label}
+          title={section.title}
+          delay={delay}
+        />
+      )
+
+    // ── Documents print (flyers, kakémono…) ──────────────────────────────────
+    case 'print-showcase':
+      return (
+        <PrintShowcase
+          items={section.printItems ?? []}
+          label={section.label}
+          title={section.title}
+          content={section.content}
+          delay={delay}
+        />
+      )
+
+    // ── Carte de visite recto/verso ──────────────────────────────────────────
+    case 'card-flip':
+      if (!section.cardRecto) return null
+      return (
+        <BusinessCard
+          recto={section.cardRecto}
+          verso={section.cardVerso ?? { src: undefined }}
+          label={section.label}
+          title={section.title}
+          content={section.content}
+          delay={delay}
+        />
+      )
 
     default:
       return null

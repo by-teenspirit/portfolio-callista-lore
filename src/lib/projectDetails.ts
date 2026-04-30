@@ -41,7 +41,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Comparaison avant/après — modules iDalgo',
         label: 'Avant / Après — Modules iDalgo',
-        src: '/mockups/idalgo-modules-before-after.jpg',
+        src: '/mockups/idalgo/idalgo-modules-before-after.jpg',
       },
       {
         type: 'highlight',
@@ -61,7 +61,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Scorecast — système de gamification, badges et divisions',
         label: 'Gamification Scorecast — badges & divisions',
-        src: '/mockups/scorecast-gamification.jpg',
+        src: '/mockups/idalgo/scorecast-gamification.jpg',
       },
       {
         type: 'metrics',
@@ -151,7 +151,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-full',
         alt: "Diagramme d'alignement — Micro-entrepreneur spécialisé dans la vidéo",
         label: "Diagramme d'alignement · Persona 1 — Micro-entrepreneur vidéo",
-        src: '/mockups/instant-prod-diagramme-micro.jpg',
+        src: '/mockups/instant-prod/instant-prod-diagramme-micro.jpg',
         caption:
           'Besoins, attentes et fonctionnalités pour les intermittents du spectacle et jeunes cinéastes.',
         fullWidth: true,
@@ -160,7 +160,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-full',
         alt: "Diagramme d'alignement — Porteurs de projets",
         label: "Diagramme d'alignement · Persona 2 — Porteur de projet",
-        src: '/mockups/instant-prod-diagramme-porteur.jpg',
+        src: '/mockups/instant-prod/instant-prod-diagramme-porteur.jpg',
         caption:
           'Besoins, attentes et fonctionnalités pour les directeurs de production et porteurs de projets.',
         fullWidth: true,
@@ -171,7 +171,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-full',
         alt: 'Recherche utilisateur et mindmap Instant Prod',
         label: 'Mindmap — Recherche utilisateur',
-        src: '/mockups/instant-prod-mindmap.png',
+        src: '/mockups/instant-prod/instant-prod-mindmap.png',
         caption:
           'Cartographie des parcours utilisateurs pour les 4 profils identifiés : novice / régulier × intermittent / porteur de projet.',
         externalUrl: 'https://coggle.it/', // ← remplacer par l'URL Coggle du projet
@@ -192,7 +192,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-full',
         alt: 'Userflow — parcours principal Instant Prod',
         label: 'Userflow — de la découverte à la livraison',
-        src: '/mockups/instant-prod-userflow.jpg',
+        src: '/mockups/instant-prod/instant-prod-userflow.jpg',
         caption:
           "De l'arrivée sur le site à la livraison du projet, en passant par le matching et la discussion.",
         externalUrl: 'https://www.figma.com/', // ← remplacer par le lien Figma du userflow
@@ -222,19 +222,19 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         fullWidth: true,
         images: [
           {
-            src: '/mockups/instant-prod-design-system.jpg',
+            src: '/mockups/instant-prod/instant-prod-design-system.jpg',
             alt: 'Design system — palette couleurs & illustrations 3D',
             label: 'Couleurs & illustrations',
             caption: 'Palette #3C55DA · #D9E1FF · #F09375 · #FFD2BB',
           },
           {
-            src: '/mockups/instant-prod-logos.jpg',
+            src: '/mockups/instant-prod/instant-prod-logos.jpg',
             alt: 'Design system — variations du logo InstantProd',
             label: 'Variations du logo',
             caption: 'Déclinaisons fond blanc, noir, bleu et pêche',
           },
           {
-            src: '/mockups/instant-prod-components.jpg',
+            src: '/mockups/instant-prod/instant-prod-components.jpg',
             alt: 'Design system — boutons, marges et composants UI',
             label: 'Boutons & composants',
             caption: 'États défaut, survol, désactivé, filtres, bottom nav',
@@ -255,7 +255,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-full',
         alt: 'Maquettes finales Instant Prod — 5 écrans clés du parcours',
         label: 'Maquettes finales — Onboarding · Homepage · Recherche · Projet · Dashboard',
-        src: '/mockups/instant-prod-maquettes.jpg',
+        src: '/mockups/instant-prod/instant-prod-maquettes.jpg',
         caption:
           "De gauche à droite : téléchargement de l'app, homepage entreprise, recherche de talents, dépôt de projet et dashboard.",
         externalUrl: 'https://www.figma.com/', // ← remplacer par le lien Figma des maquettes
@@ -339,7 +339,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'BlackSkill V1 — organisation du travail',
         label: 'V1 — Organisation du travail',
-        src: '/mockups/blsk-trello.png',
+        src: '/mockups/blackskill/blsk-trello.png',
       },
       {
         type: 'text',
@@ -351,7 +351,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'BlackSkill V1 — propositions graphiques du dashboard',
         label: 'V1 — propositions graphiques du dashboard',
-        src: '/mockups/blsk-prop-graphiques.png',
+        src: '/mockups/blackskill/blsk-prop-graphiques.png',
       },
       {
         type: 'text',
@@ -363,7 +363,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'BlackSkill V1 — version finale en skeumorphisme',
         label: 'V1 — version finale en skeumorphisme',
-        src: '/mockups/blsk-V1-maquettes.png',
+        src: '/mockups/blackskill/blsk-V1-maquettes.png',
       },
       {
         type: 'highlight',
@@ -383,7 +383,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'BlackSkill V2 — design system et composants',
         label: 'V2 — Design System',
-        src: '/mockups/blsk-design-system.png',
+        src: '/mockups/blackskill/blsk-design-system.png',
       },
       {
         type: 'two-col',
@@ -396,7 +396,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'BlackSkill V2 — Maquettes des pages principales et modules métier',
         label: 'V2 — Maquettes des pages principales & modules métier',
-        src: '/mockups/blsk-maquettes-v2.png',
+        src: '/mockups/blackskill/blsk-maquettes-v2.png',
       },
       {
         type: 'quote',
@@ -459,7 +459,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Human2Sport — arbre de compétences Carte Éco',
         label: 'Arbre de compétences — 5 branches',
-        src: '/mockups/ithake-arbre-de-competences.png',
+        src: '/mockups/human2sport/ithake-arbre-de-competences.png',
       },
       {
         type: 'text',
@@ -471,7 +471,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Human2Sport — badges, niveaux et ambassadeurs',
         label: 'Badges & Système de niveaux',
-        src: '/mockups/ithake-maquettes.png',
+        src: '/mockups/human2sport/ithake-maquettes.png',
       },
       {
         type: 'quote',
@@ -528,6 +528,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       },
     ],
     process: [
+      // ── 1. V1 ─────────────────────────────────────────────────────────────
       {
         type: 'highlight',
         title: 'V1 — Le projet familial (2022-2023)',
@@ -539,8 +540,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'PES Dépannage V1 — premiers écrans',
         label: 'V1 — Premiers écrans (2022)',
-        src: '/mockups/pesd-v1-premiers-ecrans.png',
+        src: '/mockups/pes-depannage/pesd-v1-premiers-ecrans.png',
       },
+      // ── 2. LA REMISE À ZÉRO ───────────────────────────────────────────────
       {
         type: 'highlight',
         title: 'La remise à zéro (2024)',
@@ -559,14 +561,15 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'PES Dépannage — diagrammes UML',
         label: 'Diagrammes UML',
-        src: '/mockups/pesd-uml.png',
+        src: '/mockups/pes-depannage/pesd-uml.png',
       },
       {
         type: 'image-placeholder',
         alt: 'PES Dépannage — organisation Notion',
         label: 'Livrables Notion',
-        src: '/mockups/pesd-a-faire.png',
+        src: '/mockups/pes-depannage/pesd-a-faire.png',
       },
+      // ── 3. PARCOURS V2 ────────────────────────────────────────────────────
       {
         type: 'two-col',
         title: 'Nouveaux parcours V2',
@@ -578,8 +581,145 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'PES Dépannage V2 — maquettes haute fidélité',
         label: 'V2 — Maquettes haute fidélité',
-        src: '/mockups/pesd-v2-maquettes.png',
+        src: '/mockups/pes-depannage/pesd-v2-maquettes.png',
       },
+      // ── 4. LANDING PAGE ───────────────────────────────────────────────────
+      {
+        type: 'section-title',
+        label: 'Landing page',
+        title: 'Site vitrine',
+        content:
+          'Conception de la landing page destinée à convertir les visiteurs — artisans comme particuliers — avec une proposition de valeur claire, rassurante et directe.',
+        fullWidth: true,
+      },
+      {
+        type: 'image-full',
+        src: '/mockups/pes-depannage/pes-landing-page.jpg',
+        alt: 'PES Dépannage — landing page Figma',
+        label: 'Landing page — vue complète',
+        caption:
+          'Conçue sur Figma. Proposition de valeur, double entrée artisan/particulier, section confiance et CTA.',
+        fullWidth: true,
+      },
+      // ── 5. COMMUNICATION PRINT ────────────────────────────────────────────
+      {
+        type: 'section-title',
+        label: 'Communication print',
+        title: 'Supports imprimés',
+        content:
+          'Kakémono pour les salons professionnels, flyers A5 pour les artisans partenaires et les boîtes aux lettres, format A4 de présentation partenaires.',
+        fullWidth: true,
+      },
+      {
+        type: 'print-showcase',
+        label: 'Print',
+        printItems: [
+          {
+            format: 'kakemono',
+            src: '/mockups/pes-depannage/pes-kakemono.jpg',
+            alt: 'Kakémono PES Dépannage',
+            label: 'Kakémono',
+            caption: 'Pour salons et événements pro',
+          },
+          {
+            format: 'A4-portrait',
+            src: '/mockups/pes-depannage/pes-flyer-artisan.jpg',
+            alt: 'Flyer artisan PES Dépannage',
+            label: 'Flyer artisan',
+            caption: 'Distribué aux artisans partenaires',
+          },
+          {
+            format: 'A4-portrait',
+            src: '/mockups/pes-depannage/pes-flyer-particulier.jpg',
+            alt: 'Flyer particulier',
+            label: 'Flyer particulier',
+            caption: 'Distribution boîtes aux lettres',
+          },
+        ],
+        fullWidth: true,
+      },
+      {
+        type: 'section-title',
+        label: 'Carte de visite',
+        title: 'Recto · Verso',
+        content: 'Carte de visite double face au format standard 85×54mm. Cliquer pour retourner.',
+        fullWidth: true,
+      },
+      {
+        type: 'card-flip',
+        label: 'Carte de visite',
+        cardRecto: {
+          src: '/mockups/pes-depannage/pes-carte-de-visite-recto.jpg',
+          alt: 'Carte de visite PES Dépannage — recto',
+        },
+        cardVerso: {
+          src: '/mockups/pes-depannage/pes-carte-de-visite-verso.jpg',
+          alt: 'Carte de visite PES Dépannage — verso',
+        },
+        fullWidth: true,
+      },
+      // ── 6. COMMUNICATION RÉSEAUX SOCIAUX ───────────────────────────────
+      {
+        type: 'section-title',
+        label: 'Réseaux sociaux',
+        title: 'Posts & carrousels',
+        content:
+          'Création de contenus visuels pour Instagram et LinkedIn : posts uniques (conseils, témoignages, offres) et carrousels multi-slides pour expliquer le concept ou présenter les étapes du service.',
+        fullWidth: true,
+      },
+      {
+        type: 'social-grid',
+        label: 'Instagram / LinkedIn',
+        title: 'Contenus réseaux sociaux',
+        fullWidth: true,
+        posts: [
+          // Posts uniques
+          {
+            type: 'single',
+            src: '/mockups/pes-depannage/pes-post-social-proof.jpg',
+            alt: 'Post réseaux — Social Proof',
+            caption: 'Post réseaux — Social Proof',
+            ratio: '1:1',
+          },
+          {
+            type: 'single',
+            src: '/mockups/pes-depannage/pes-post-promo.jpg',
+            alt: 'Post réseaux — Promotionnel',
+            caption: 'Post réseaux — Promotionnel',
+            ratio: '1:1',
+          },
+          {
+            type: 'single',
+            src: '/mockups/pes-depannage/pes-post-inspirant.jpg',
+            alt: 'Post réseaux — Inspirant',
+            caption: 'Post réseaux — Inspirant',
+            ratio: '1:1',
+          },
+          {
+            type: 'single',
+            src: '/mockups/pes-depannage/pes-post-commu.jpg',
+            alt: 'Post réseaux — Communautaire',
+            caption: 'Post réseaux — Communautaire',
+            ratio: '1:1',
+          },
+          // Carrousel — artisans
+          {
+            type: 'carousel',
+            slides: [
+              '/mockups/pes-depannage/pes-post-edu-1.jpg',
+              '/mockups/pes-depannage/pes-post-edu-2.jpg',
+              '/mockups/pes-depannage/pes-post-edu-3.jpg',
+              '/mockups/pes-depannage/pes-post-edu-4.jpg',
+              '/mockups/pes-depannage/pes-post-edu-5.jpg',
+              '/mockups/pes-depannage/pes-post-edu-6.jpg',
+            ],
+            alt: "Carrousel — Rejoindre en tant qu'artisan",
+            caption: "Comment rejoindre le réseau en tant qu'artisan",
+            ratio: '1:1',
+          },
+        ],
+      },
+      // ── 7. QUOTE & METRICS ───────────────────────────────────────────────
       {
         type: 'metrics',
         metrics: [
