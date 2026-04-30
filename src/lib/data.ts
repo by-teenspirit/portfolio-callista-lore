@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
     featured: false,
     year: 2023,
   },
-  {
+  /* {
     id: '6',
     slug: 'direct-mandat',
     title: 'Direct Mandat',
@@ -93,8 +93,8 @@ export const PROJECTS: Project[] = [
     coverEmoji: '🏠',
     featured: false,
     year: 2023,
-  },
-  {
+  },*/
+  /* {
     id: '7',
     slug: 'quadient',
     title: 'Quadient',
@@ -106,7 +106,7 @@ export const PROJECTS: Project[] = [
     coverEmoji: '📦',
     featured: false,
     year: 2024,
-  },
+  },*/
   {
     id: '8',
     slug: 'memoire-master',
