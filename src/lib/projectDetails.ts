@@ -292,6 +292,13 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     learnings:
       "Ce projet m'a appris que la gestion des délais serrés et du travail en équipe est aussi complexe que la conception du produit. Un bon projet centré utilisateur demande de l'itération, de l'adaptation et de remettre en question ses propres idées — même quand c'est inconfortable. J'ai aussi découvert la richesse de la recherche terrain et l'importance de comprendre les deux faces d'un marché pour concevoir une solution qui fonctionne vraiment.",
+    companies: [
+      {
+        name: "Campus Fonderie de l'Image",
+        logo: '/logos/campus-fonderie-de-limage.png',
+        url: 'https://www.campusfonderiedelimage.org/',
+      },
+    ],
     tools: [
       { label: 'Figma', logo: '/tools/figma.svg' },
       { label: 'Notion', logo: '/tools/notion.svg' },
@@ -330,8 +337,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       },
       {
         type: 'image-placeholder',
-        alt: 'BlackSkill V1 — interfaces skeumorphiques',
-        label: 'V1 — Interface skeumorphique',
+        alt: 'BlackSkill V1 — organisation du travail',
+        label: 'V1 — Organisation du travail',
+        src: '/mockups/blsk-trello.png',
+      },
+      {
+        type: 'text',
+        title: 'Propositions graphiques',
+        content:
+          'De nombreux tests ont été effectués, notamment sur la partie dashboard, une fois les wireframes terminés, afin de correspondre au maximum aux attentes du client. De nombreux allers-retours ont été effectués avant de trouver une esthétique satisfaisante pour le client, mais qui restait très éloignée de mes recommandations graphiques et ergonomiques — ce qui a été un apprentissage important pour la suite du projet.',
+      },
+      {
+        type: 'image-placeholder',
+        alt: 'BlackSkill V1 — propositions graphiques du dashboard',
+        label: 'V1 — propositions graphiques du dashboard',
+        src: '/mockups/blsk-prop-graphiques.png',
+      },
+      {
+        type: 'text',
+        title: 'Version finale V1',
+        content:
+          'De nombreux tests ont été effectués, notamment sur la partie dashboard, une fois les wireframes terminés, afin de correspondre au maximum aux attentes du client. De nombreux allers-retours ont été effectués avant de trouver une esthétique satisfaisante pour le client, mais qui restait très éloignée de mes recommandations graphiques et ergonomiques — ce qui a été un apprentissage important pour la suite du projet.',
+      },
+      {
+        type: 'image-placeholder',
+        alt: 'BlackSkill V1 — version finale en skeumorphisme',
+        label: 'V1 — version finale en skeumorphisme',
+        src: '/mockups/blsk-V1-maquettes.png',
       },
       {
         type: 'highlight',
@@ -351,6 +383,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'BlackSkill V2 — design system et composants',
         label: 'V2 — Design System',
+        src: '/mockups/blsk-design-system.png',
       },
       {
         type: 'two-col',
@@ -361,13 +394,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       },
       {
         type: 'image-placeholder',
-        alt: 'BlackSkill V2 — dashboard manager',
-        label: 'V2 — Dashboard Manager',
-      },
-      {
-        type: 'image-placeholder',
-        alt: 'BlackSkill V2 — fiche joueur et rapports',
-        label: 'V2 — Fiche Joueur & Rapports',
+        alt: 'BlackSkill V2 — Maquettes des pages principales et modules métier',
+        label: 'V2 — Maquettes des pages principales & modules métier',
+        src: '/mockups/blsk-maquettes-v2.png',
       },
       {
         type: 'quote',
@@ -395,7 +424,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       "Un projet peut réussir même si les décisions ne vont pas toujours dans le sens prévu. J'ai appris à séparer mes convictions de designer des contraintes client — documenter ses recommandations même quand elles ne sont pas retenues. Le travail en amont sur les user stories est déterminant.",
     companies: [
       { name: 'BlackSkill', logo: '/logos/blackskill.svg' },
-      { name: 'One More Thing Studio', logo: '/logos/one-more-thing.svg' },
+      { name: 'One More Thing Studio', logo: '/logos/omts.svg' },
     ],
     tools: [
       { label: 'Figma', logo: '/tools/figma.svg' },
@@ -430,6 +459,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Human2Sport — arbre de compétences Carte Éco',
         label: 'Arbre de compétences — 5 branches',
+        src: '/mockups/ithake-arbre-de-competences.png',
       },
       {
         type: 'text',
@@ -441,6 +471,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'Human2Sport — badges, niveaux et ambassadeurs',
         label: 'Badges & Système de niveaux',
+        src: '/mockups/ithake-maquettes.png',
       },
       {
         type: 'quote',
@@ -466,6 +497,11 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     learnings:
       "Un hackathon enseigne à prioriser l'essentiel, faire confiance à son instinct de designer, et collaborer à une vitesse inhabituelle avec des profils très variés. Ce projet a directement inspiré la thématique de mon mémoire de master.",
+    companies: [
+      { name: 'Human2Sport', logo: '/logos/human2sport.png' },
+      { name: 'Ithake', logo: '/logos/ithake.png' },
+      { name: 'La Carte Eco', logo: '/logos/carte-eco.png' },
+    ],
     tools: [{ label: 'Figma', logo: '/tools/figma.svg' }],
   },
 
@@ -503,6 +539,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         type: 'image-placeholder',
         alt: 'PES Dépannage V1 — premiers écrans',
         label: 'V1 — Premiers écrans (2022)',
+        src: '/mockups/pesd-v1-premiers-ecrans.png',
       },
       {
         type: 'highlight',
@@ -520,8 +557,15 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       },
       {
         type: 'image-placeholder',
-        alt: 'PES Dépannage — diagrammes UML et organisation Notion',
-        label: 'Diagrammes UML & Livrables Notion',
+        alt: 'PES Dépannage — diagrammes UML',
+        label: 'Diagrammes UML',
+        src: '/mockups/pesd-uml.png',
+      },
+      {
+        type: 'image-placeholder',
+        alt: 'PES Dépannage — organisation Notion',
+        label: 'Livrables Notion',
+        src: '/mockups/pesd-a-faire.png',
       },
       {
         type: 'two-col',
@@ -532,13 +576,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       },
       {
         type: 'image-placeholder',
-        alt: 'PES Dépannage V2 — maquettes wireframes',
-        label: 'V2 — Wireframes itératifs',
-      },
-      {
-        type: 'image-placeholder',
         alt: 'PES Dépannage V2 — maquettes haute fidélité',
         label: 'V2 — Maquettes haute fidélité',
+        src: '/mockups/pesd-v2-maquettes.png',
       },
       {
         type: 'metrics',
@@ -558,6 +598,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     learnings:
       "Ce projet m'a confrontée à la résilience nécessaire pour entreprendre. Savoir tout remettre en question après des mois de travail est un acte de maturité UX. Le bon parcours n'est pas celui qu'on imagine, mais celui qui fonctionne sur le terrain.",
+    companies: [{ name: 'PES Dépannage', logo: '/logos/pes-depannage.svg' }],
     tools: [
       { label: 'Figma', logo: '/tools/figma.svg' },
       { label: 'Notion', logo: '/tools/notion.svg' },

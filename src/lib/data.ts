@@ -52,8 +52,7 @@ export const PROJECTS: Project[] = [
     description:
       "Création d'une application interne pour Blackskill avec une approche skeumorphique distinctive. Design d'interfaces qui imitent des objets physiques pour une expérience familière.",
     tags: ['UX Design', 'Skeumorphisme'],
-    coverColor: '#1C0A00',
-    coverEmoji: '🖤',
+    coverImage: '/covers/blsk-maquettes-v2.png',
     featured: true,
     year: 2024,
   },
@@ -65,8 +64,7 @@ export const PROJECTS: Project[] = [
     description:
       "Application pour donner envie aux enfants en situation de handicap de faire du sport. Lauréat Coup de Cœur en Novembre 2023. Gamification et UX Research au service de l'inclusion.",
     tags: ['Gamification', 'Hackathon', 'UX Research'],
-    coverColor: '#003049',
-    coverEmoji: '🏅',
+    coverImage: '/covers/ithake-maquettes.png',
     featured: true,
     year: 2023,
     prize: '🏆 Lauréat Coup de Cœur',
@@ -79,8 +77,7 @@ export const PROJECTS: Project[] = [
     description:
       "Co-fondé une plateforme de mise en relation artisans/particuliers. Création des maquettes et mise en ligne d'une première version atteignant 100 utilisateurs. Refonte complète dans le cadre du Mastère (mention major ex-aequo).",
     tags: ['Gestion de projet', 'UX Design'],
-    coverColor: '#2D1B00',
-    coverEmoji: '🔧',
+    coverImage: '/covers/pesd-v2-maquettes.png',
     featured: false,
     year: 2023,
   },

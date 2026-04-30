@@ -4,7 +4,8 @@ import { useProject } from '@/hooks/useProject'
 import { ProjectHero } from './ProjectHero'
 import { ProjectContent } from './ProjectContent'
 import { ProjectSidebar } from './ProjectSidebar'
-import { ProjectNavigation, ProjectTopNav } from './ProjectNavigation'
+import { ProjectNavigation } from './ProjectNavigation'
+import { ProjectDrawer } from './ProjectDrawer'
 import { VersionTimeline } from './VersionTimeline'
 import { BeforeAfterBanner } from './BeforeAfterBanner'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
@@ -60,7 +61,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
     )
   }
 
-  // ── Sépare les sections en deux groupes ──────────────────────────────────
+  // ── Sépare les sections intro (avec sidebar) et wide (pleine largeur) ──────
   const introSections: ProjectSection[] = []
   const wideSections: ProjectSection[] = []
   let wideStarted = false
@@ -76,13 +77,13 @@ export function ProjectPage({ slug }: ProjectPageProps) {
 
   return (
     <article>
-      {/* Barre de navigation discrète entre projets */}
-      <ProjectTopNav prev={prev} next={next} />
+      {/* Drawer latéral de navigation entre projets */}
+      <ProjectDrawer currentSlug={slug} />
 
       {/* Hero */}
       <ProjectHero project={project} detail={detail} />
 
-      {/* Context strip */}
+      {/* Bandeau contexte */}
       <div className="bg-ink/[0.02] border-y border-ink/5 py-6">
         <div className="section-container">
           <AnimatedSection direction="none">
@@ -96,7 +97,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
         </div>
       </div>
 
-      {/* Main content */}
+      {/* Contenu principal */}
       <div className="py-20">
         <div className="section-container">
           {detail.versions && detail.versions.length > 0 && (
@@ -104,6 +105,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
               <VersionTimeline versions={detail.versions} />
             </AnimatedSection>
           )}
+
           {detail.beforeAfter && (
             <AnimatedSection className="mb-4">
               <BeforeAfterBanner
@@ -113,6 +115,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
             </AnimatedSection>
           )}
 
+          {/* Zone 1 : sections intro + sidebar */}
           {introSections.length > 0 ? (
             <div className="grid lg:grid-cols-[1fr_300px] gap-12">
               <div>
@@ -141,6 +144,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
           )}
         </div>
 
+        {/* Zone 2 : sections pleine largeur */}
         {wideSections.length > 0 && (
           <div className="section-container mt-16">
             <ProjectContent sections={wideSections} />
@@ -148,6 +152,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
         )}
       </div>
 
+      {/* Navigation bas de page */}
       <ProjectNavigation prev={prev} next={next} />
     </article>
   )

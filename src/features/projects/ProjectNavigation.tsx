@@ -16,7 +16,7 @@ export function ProjectTopNav({ prev, next }: ProjectNavigationProps) {
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5, duration: 0.4 }}
-      className="sticky top-[52px] z-40 flex items-center justify-between px-4 py-1.5 bg-surface/80 backdrop-blur-sm border-b border-ink/5"
+      className="sticky top-[9%] z-40 flex items-center justify-between px-4 py-1.5 bg-surface/80 backdrop-blur-sm border-b border-ink/5"
     >
       {prev ? (
         <Link
