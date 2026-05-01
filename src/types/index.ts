@@ -91,6 +91,8 @@ export interface ProjectSection {
   caption?: string
   externalUrl?: string
   externalLabel?: string
+  /** Tronque l'image inline à cette hauteur. Cliquer ouvre la version entière en lightbox. */
+  maxHeight?: string
 
   // ── image-trio ───────────────────────────────────────────────────────────────
   images?: {

@@ -9,7 +9,6 @@ export interface PrintItem {
   alt?: string
   label?: string
   caption?: string
-  /** Format papier du document */
   format: 'A4-portrait' | 'A4-landscape' | 'kakemono' | 'A5-portrait' | 'square'
 }
 
@@ -21,11 +20,10 @@ interface PrintShowcaseProps {
   delay?: number
 }
 
-/** Ratio CSS selon le format */
 const FORMAT_RATIO: Record<PrintItem['format'], string> = {
   'A4-portrait': 'aspect-[210/297]',
   'A4-landscape': 'aspect-[297/210]',
-  kakemono: 'aspect-[1/2]',
+  kakemono: 'aspect-[1/2.5]',
   'A5-portrait': 'aspect-[148/210]',
   square: 'aspect-square',
 }
@@ -36,15 +34,6 @@ const FORMAT_LABEL: Record<PrintItem['format'], string> = {
   kakemono: 'Kakémono',
   'A5-portrait': 'A5',
   square: 'Carré',
-}
-
-/** Largeur max selon format pour que ça reste lisible */
-const FORMAT_MAX_W: Record<PrintItem['format'], string> = {
-  'A4-portrait': 'max-w-[180px]',
-  'A4-landscape': 'max-w-[300px]',
-  kakemono: 'max-w-[100px]',
-  'A5-portrait': 'max-w-[160px]',
-  square: 'max-w-[200px]',
 }
 
 const resolveUrl = (path: string) => {
@@ -67,58 +56,58 @@ function PrintCard({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: delay + index * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="flex flex-col items-center gap-3"
+      transition={{ delay: delay + index * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      className="flex flex-col items-center gap-2"
+      // flex-1 pour que tous les items partagent l'espace équitablement
+      style={{ flex: '1 1 0', minWidth: 0 }}
     >
-      {/* Document */}
       <button
         onClick={onClick}
         className={cn(
           'relative w-full group cursor-pointer',
           FORMAT_RATIO[item.format],
-          FORMAT_MAX_W[item.format],
-          // Ombre "papier"
-          'shadow-[0_4px_24px_rgba(0,0,0,0.12),0_1px_3px_rgba(0,0,0,0.08)]',
-          'rounded-sm overflow-hidden border border-ink/8',
-          'transition-all duration-300 hover:shadow-[0_8px_40px_rgba(0,0,0,0.18)] hover:-translate-y-1'
+          'shadow-[0_4px_20px_rgba(0,0,0,0.10),0_1px_3px_rgba(0,0,0,0.06)]',
+          'rounded-sm overflow-hidden border border-ink/8 bg-white',
+          'transition-all duration-300 hover:shadow-[0_8px_36px_rgba(0,0,0,0.16)] hover:-translate-y-1.5'
         )}
       >
         {item.src ? (
           <img
             src={resolveUrl(item.src)}
             alt={item.alt ?? item.label ?? item.format}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
             loading="lazy"
           />
         ) : (
           <div className="w-full h-full bg-ink/[0.03] flex flex-col items-center justify-center gap-2">
-            <Printer size={20} className="text-ink/20" />
+            <Printer size={18} className="text-ink/20" />
             <span className="text-[9px] font-mono text-ink-subtle text-center px-2">
               {item.label ?? FORMAT_LABEL[item.format]}
             </span>
           </div>
         )}
 
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-colors duration-300 flex items-center justify-center">
+        {/* Overlay hover */}
+        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/25 transition-colors duration-300 flex items-center justify-center">
           <ZoomIn
-            size={18}
+            size={16}
             className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           />
         </div>
 
         {/* Badge format */}
-        <div className="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 bg-black/40 backdrop-blur-sm rounded text-[8px] font-mono text-white/80">
+        <div className="absolute bottom-1 left-1 px-1 py-0.5 bg-black/35 backdrop-blur-sm rounded text-[7px] font-mono text-white/80">
           {FORMAT_LABEL[item.format]}
         </div>
       </button>
 
-      {/* Label sous le document */}
       {item.label && (
-        <p className="text-[10px] font-mono text-ink-subtle text-center">{item.label}</p>
+        <p className="text-[10px] font-mono text-ink-subtle text-center leading-tight px-1">
+          {item.label}
+        </p>
       )}
     </motion.div>
   )
@@ -134,19 +123,17 @@ function PrintLightbox({ item, onClose }: { item: PrintItem; onClose: () => void
       onClick={onClose}
     >
       <motion.div
-        initial={{ scale: 0.9, y: 20 }}
+        initial={{ scale: 0.92, y: 16 }}
         animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.9, y: 20 }}
+        exit={{ scale: 0.92, y: 16 }}
         transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          'relative max-h-[90vh]',
-          // Largeur max selon format en lightbox
-          item.format === 'kakemono' ? 'max-w-[240px]' : 'max-w-[640px]',
+          'relative max-h-[88vh]',
+          item.format === 'kakemono' ? 'max-w-[220px]' : 'max-w-[600px]',
           'w-full'
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Image */}
         <div className={cn(FORMAT_RATIO[item.format], 'overflow-hidden rounded-lg shadow-2xl')}>
           {item.src ? (
             <img
@@ -155,13 +142,12 @@ function PrintLightbox({ item, onClose }: { item: PrintItem; onClose: () => void
               className="w-full h-full object-contain bg-white"
             />
           ) : (
-            <div className="w-full h-full bg-ink/10 flex items-center justify-center">
-              <Printer size={40} className="text-white/30" />
+            <div className="w-full h-full bg-white flex items-center justify-center">
+              <Printer size={40} className="text-ink/20" />
             </div>
           )}
         </div>
 
-        {/* Fermer */}
         <button
           onClick={onClose}
           className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-ink/5 transition-colors"
@@ -169,7 +155,6 @@ function PrintLightbox({ item, onClose }: { item: PrintItem; onClose: () => void
           <X size={14} className="text-ink" />
         </button>
 
-        {/* Caption */}
         {item.caption && (
           <p className="mt-3 text-xs font-body text-white/70 text-center leading-relaxed">
             {item.caption}
@@ -183,14 +168,8 @@ function PrintLightbox({ item, onClose }: { item: PrintItem; onClose: () => void
 export function PrintShowcase({ items, label, title, content, delay = 0 }: PrintShowcaseProps) {
   const [active, setActive] = useState<PrintItem | null>(null)
 
-  // Sépare kakémonos et A4/A5 pour les disposer différemment
-  const tallItems = items.filter((i) => i.format === 'kakemono')
-  const flatItems = items.filter((i) => i.format !== 'kakemono')
-  const hasKakemono = tallItems.length > 0
-
   return (
     <AnimatedSection delay={delay}>
-      {/* En-tête */}
       {(label || title || content) && (
         <div className="mb-6">
           {label && (
@@ -204,53 +183,17 @@ export function PrintShowcase({ items, label, title, content, delay = 0 }: Print
         </div>
       )}
 
-      {/* Layout : kakémono à gauche + flyers à droite (si kakémono présent) */}
-      {hasKakemono ? (
-        <div className="flex gap-8 items-start">
-          {/* Kakémono(s) */}
-          <div className="flex gap-4 items-start flex-shrink-0">
-            {tallItems.map((item, i) => (
-              <PrintCard
-                key={i}
-                item={item}
-                index={i}
-                delay={delay}
-                onClick={() => setActive(item)}
-              />
-            ))}
-          </div>
+      {/*
+        Tous les items côte à côte, alignés par le BAS (items-end).
+        Le kakémono est naturellement plus haut via son ratio — pas besoin de le traiter à part.
+        flex-1 sur chaque card = largeur partagée équitablement.
+      */}
+      <div className="flex gap-4 sm:gap-6 items-end">
+        {items.map((item, i) => (
+          <PrintCard key={i} item={item} index={i} delay={delay} onClick={() => setActive(item)} />
+        ))}
+      </div>
 
-          {/* Flyers/A4 */}
-          {flatItems.length > 0 && (
-            <div className="flex-1 grid grid-cols-2 gap-4 items-start">
-              {flatItems.map((item, i) => (
-                <PrintCard
-                  key={i}
-                  item={item}
-                  index={i + tallItems.length}
-                  delay={delay}
-                  onClick={() => setActive(item)}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      ) : (
-        /* Pas de kakémono → grille simple */
-        <div className={cn('flex gap-6 flex-wrap items-end justify-start')}>
-          {flatItems.map((item, i) => (
-            <PrintCard
-              key={i}
-              item={item}
-              index={i}
-              delay={delay}
-              onClick={() => setActive(item)}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Lightbox */}
       <AnimatePresence>
         {active && <PrintLightbox item={active} onClose={() => setActive(null)} />}
       </AnimatePresence>

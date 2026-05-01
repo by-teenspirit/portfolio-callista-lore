@@ -599,6 +599,8 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
         label: 'Landing page — vue complète',
         caption:
           'Conçue sur Figma. Proposition de valeur, double entrée artisan/particulier, section confiance et CTA.',
+        // maxHeight tronque l'image à 520px inline. Cliquer ouvre la version complète en lightbox.
+        maxHeight: '520px',
         fullWidth: true,
       },
       // ── 5. COMMUNICATION PRINT ────────────────────────────────────────────
@@ -745,7 +747,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
   },
 
-  /*'direct-mandat': {
+  'direct-mandat': {
     context:
       "DirectMandat est une plateforme utilisée par des agents immobiliers pour prospecter : ils consultent des annonces sur Le Bon Coin et démarchent les particuliers pour obtenir des mandats. Le site existant datait de 2005, n'était pas responsive, et souffrait d'une UX profondément datée. Mission via One More Thing Studio : refonte totale mobile-first.",
     role: 'UX Designer — One More Thing Studio',
@@ -819,9 +821,9 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: 'Figma', logo: '/tools/figma.svg' },
       { label: 'Notion', logo: '/tools/notion.svg' },
     ],
-  },*/
+  },
 
-  /* quadient: {
+  quadient: {
     context:
       "Quadient est un leader des solutions de communication client et de gestion du courrier. La mission : concevoir une application mobile permettant de scanner les marques d'affranchissement sur des enveloppes via photo, pour identifier la machine, son modèle, la date d'envoi, la société émettrice, l'adresse, le SIRET et le collaborateur — avec une dimension gamification pour engager les équipes.",
     role: 'UX/UI Designer — One More Thing Studio',
@@ -883,7 +885,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { name: 'One More Thing Studio', logo: '/logos/one-more-thing.svg' },
     ],
     tools: [{ label: 'Figma', logo: '/tools/figma.svg' }],
-  },*/
+  },
 
   'memoire-master': {
     context:

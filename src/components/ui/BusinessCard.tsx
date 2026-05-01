@@ -4,14 +4,8 @@ import { CreditCard, RotateCcw, X, ZoomIn } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 
 export interface BusinessCardProps {
-  recto: {
-    src?: string
-    alt?: string
-  }
-  verso: {
-    src?: string
-    alt?: string
-  }
+  recto: { src?: string; alt?: string }
+  verso: { src?: string; alt?: string }
   label?: string
   title?: string
   content?: string
@@ -25,7 +19,6 @@ const resolveUrl = (path: string) => {
   return `${base}${path.startsWith('/') ? path : `/${path}`}`
 }
 
-/** Carte individuelle avec flip 3D */
 function FlipCard({
   recto,
   verso,
@@ -34,32 +27,35 @@ function FlipCard({
   verso: { src?: string; alt?: string }
 }) {
   const [flipped, setFlipped] = useState(false)
+  const [hovered, setHovered] = useState(false)
   const [lightbox, setLightbox] = useState<'recto' | 'verso' | null>(null)
 
+  const currentFace = flipped ? 'verso' : 'recto'
+
   return (
-    <div className="flex flex-col items-center gap-4">
-      {/* Carte avec perspective 3D */}
+    <div className="flex flex-col items-center gap-5">
+      {/* Carte */}
       <div
         className="relative cursor-pointer select-none"
-        style={{ perspective: '1000px', width: '340px', height: '190px' }}
+        style={{ perspective: '1200px', width: '360px', height: '202px' }}
         onClick={() => setFlipped((f) => !f)}
-        title={flipped ? 'Voir le recto' : 'Voir le verso'}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
         <motion.div
           animate={{ rotateY: flipped ? 180 : 0 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           style={{ transformStyle: 'preserve-3d', width: '100%', height: '100%' }}
-          className="relative"
         >
-          {/* RECTO */}
+          {/* ── RECTO ── */}
           <div
-            className="absolute inset-0 rounded-xl overflow-hidden border border-ink/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+            className="absolute inset-0 rounded-2xl overflow-hidden border border-ink/10 shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
             style={{ backfaceVisibility: 'hidden' }}
           >
             {recto.src ? (
               <img
                 src={resolveUrl(recto.src)}
-                alt={recto.alt ?? 'Carte de visite — recto'}
+                alt={recto.alt ?? 'Recto'}
                 className="w-full h-full object-cover"
                 draggable={false}
               />
@@ -69,26 +65,17 @@ function FlipCard({
                 <span className="text-[10px] font-mono text-ink-subtle">Recto</span>
               </div>
             )}
-            {/* Indicateur hover */}
-            <div className="absolute inset-0 bg-ink/0 hover:bg-ink/10 transition-colors duration-300 flex items-end justify-end p-3">
-              <span className="text-[9px] font-mono text-ink-subtle/60 bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                Cliquer pour retourner →
-              </span>
-            </div>
           </div>
 
-          {/* VERSO */}
+          {/* ── VERSO ── */}
           <div
-            className="absolute inset-0 rounded-xl overflow-hidden border border-ink/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
-            style={{
-              backfaceVisibility: 'hidden',
-              transform: 'rotateY(180deg)',
-            }}
+            className="absolute inset-0 rounded-2xl overflow-hidden border border-ink/10 shadow-[0_8px_32px_rgba(0,0,0,0.14)]"
+            style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
           >
             {verso.src ? (
               <img
                 src={resolveUrl(verso.src)}
-                alt={verso.alt ?? 'Carte de visite — verso'}
+                alt={verso.alt ?? 'Verso'}
                 className="w-full h-full object-cover"
                 draggable={false}
               />
@@ -98,31 +85,81 @@ function FlipCard({
                 <span className="text-[10px] font-mono text-ink-subtle">Verso</span>
               </div>
             )}
-            <div className="absolute inset-0 bg-ink/0 hover:bg-ink/10 transition-colors duration-300 flex items-end justify-end p-3">
-              <span className="text-[9px] font-mono text-ink-subtle/60 bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                ← Retourner
-              </span>
-            </div>
           </div>
         </motion.div>
+
+        {/* ── Hint flottant — toujours visible, pas seulement au hover ── */}
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 4 }}
+              transition={{ duration: 0.18 }}
+              className="absolute inset-0 flex items-center justify-center pointer-events-none rounded-2xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.18) 100%)',
+              }}
+            >
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center">
+                  <RotateCcw size={16} className="text-white" />
+                </div>
+                <span className="text-white text-xs font-mono font-semibold tracking-wide drop-shadow-md">
+                  {flipped ? '← Voir le recto' : 'Voir le verso →'}
+                </span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      {/* Contrôles sous la carte */}
-      <div className="flex items-center gap-3">
-        <button
-          onClick={() => setFlipped((f) => !f)}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-ink/10 text-ink-subtle hover:border-brand-orange/30 hover:text-brand-orange transition-all duration-200 text-[11px] font-mono"
-        >
-          <RotateCcw size={11} />
-          {flipped ? 'Voir recto' : 'Voir verso'}
-        </button>
-        <button
-          onClick={() => setLightbox(flipped ? 'verso' : 'recto')}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-ink/10 text-ink-subtle hover:border-brand-orange/30 hover:text-brand-orange transition-all duration-200 text-[11px] font-mono"
-        >
-          <ZoomIn size={11} />
-          Agrandir
-        </button>
+      {/* Indicateur de face actuelle + contrôles */}
+      <div className="flex flex-col items-center gap-3">
+        {/* Pastilles recto / verso */}
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={() => setFlipped(false)}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono transition-all duration-200"
+            style={
+              !flipped
+                ? { background: 'var(--color-brand-orange)', color: '#fff' }
+                : {
+                    background: 'transparent',
+                    color: 'var(--color-ink-subtle)',
+                    border: '1px solid rgba(0,0,0,0.08)',
+                  }
+            }
+          >
+            Recto
+          </button>
+          <button
+            onClick={() => setFlipped(true)}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono transition-all duration-200"
+            style={
+              flipped
+                ? { background: 'var(--color-brand-orange)', color: '#fff' }
+                : {
+                    background: 'transparent',
+                    color: 'var(--color-ink-subtle)',
+                    border: '1px solid rgba(0,0,0,0.08)',
+                  }
+            }
+          >
+            Verso
+          </button>
+          <span className="w-px h-4 bg-ink/10 mx-1" />
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              setLightbox(currentFace)
+            }}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-ink/10 text-ink-subtle hover:border-brand-orange/30 hover:text-brand-orange transition-all duration-200 text-[11px] font-mono"
+          >
+            <ZoomIn size={10} />
+            Agrandir
+          </button>
+        </div>
       </div>
 
       {/* Lightbox */}
@@ -136,14 +173,14 @@ function FlipCard({
             onClick={() => setLightbox(null)}
           >
             <motion.div
-              initial={{ scale: 0.9 }}
+              initial={{ scale: 0.92 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
+              exit={{ scale: 0.92 }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="relative max-w-[600px] w-full"
+              className="relative max-w-[640px] w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="aspect-[85.6/54] overflow-hidden rounded-xl shadow-2xl">
+              <div className="aspect-[85.6/54] overflow-hidden rounded-2xl shadow-2xl">
                 {(lightbox === 'recto' ? recto : verso).src ? (
                   <img
                     src={resolveUrl((lightbox === 'recto' ? recto : verso).src!)}
@@ -173,7 +210,6 @@ function FlipCard({
   )
 }
 
-/** Composant wrapper avec AnimatedSection */
 export function BusinessCard({
   recto,
   verso,
@@ -196,8 +232,6 @@ export function BusinessCard({
           {content && <p className="text-sm font-body text-ink-muted leading-relaxed">{content}</p>}
         </div>
       )}
-
-      {/* Centré sur la page */}
       <div className="flex justify-center">
         <FlipCard recto={recto} verso={verso} />
       </div>

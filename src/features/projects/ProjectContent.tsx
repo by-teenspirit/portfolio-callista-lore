@@ -166,6 +166,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
           delay={delay}
           externalUrl={section.externalUrl}
           externalLabel={section.externalLabel}
+          maxHeight={section.maxHeight}
         />
       )
 
@@ -194,6 +195,7 @@ function SectionBlock({ section, index }: { section: ProjectSection; index: numb
           delay={delay}
           externalUrl={section.externalUrl}
           externalLabel={section.externalLabel}
+          maxHeight={section.maxHeight}
         />
       )
 

@@ -61,7 +61,6 @@ export function ProjectPage({ slug }: ProjectPageProps) {
     )
   }
 
-  // ── Sépare les sections intro (avec sidebar) et wide (pleine largeur) ──────
   const introSections: ProjectSection[] = []
   const wideSections: ProjectSection[] = []
   let wideStarted = false
@@ -75,12 +74,12 @@ export function ProjectPage({ slug }: ProjectPageProps) {
     }
   }
 
+  const hasIntro = introSections.length > 0
+  const hasWide = wideSections.length > 0
+
   return (
     <article>
-      {/* Drawer latéral de navigation entre projets */}
       <ProjectDrawer currentSlug={slug} />
-
-      {/* Hero */}
       <ProjectHero project={project} detail={detail} />
 
       {/* Bandeau contexte */}
@@ -97,17 +96,16 @@ export function ProjectPage({ slug }: ProjectPageProps) {
         </div>
       </div>
 
-      {/* Contenu principal */}
+      {/* ── Zone principale ──────────────────────────────────────────────────── */}
       <div className="py-20">
         <div className="section-container">
           {detail.versions && detail.versions.length > 0 && (
-            <AnimatedSection className="mb-4">
+            <AnimatedSection className="mb-10">
               <VersionTimeline versions={detail.versions} />
             </AnimatedSection>
           )}
-
           {detail.beforeAfter && (
-            <AnimatedSection className="mb-4">
+            <AnimatedSection className="mb-10">
               <BeforeAfterBanner
                 before={detail.beforeAfter.before}
                 after={detail.beforeAfter.after}
@@ -115,44 +113,80 @@ export function ProjectPage({ slug }: ProjectPageProps) {
             </AnimatedSection>
           )}
 
-          {/* Zone 1 : sections intro + sidebar */}
-          {introSections.length > 0 ? (
-            <div className="grid lg:grid-cols-[1fr_300px] gap-12">
-              <div>
-                <AnimatedSection className="mb-10">
-                  <p className="text-xs font-mono text-brand-orange tracking-widest uppercase mb-2">
-                    Démarche
-                  </p>
-                  <h2 className="heading-md text-ink">Processus de design</h2>
-                </AnimatedSection>
-                <ProjectContent sections={introSections} />
-              </div>
-              <ProjectSidebar detail={detail} />
-            </div>
-          ) : (
-            <div className="grid lg:grid-cols-[1fr_300px] gap-12 mb-12">
-              <div>
-                <AnimatedSection>
-                  <p className="text-xs font-mono text-brand-orange tracking-widest uppercase mb-2">
-                    Démarche
-                  </p>
-                  <h2 className="heading-md text-ink">Processus de design</h2>
-                </AnimatedSection>
-              </div>
-              <ProjectSidebar detail={detail} />
-            </div>
-          )}
-        </div>
+          {/*
+            ── Layout à deux colonnes ──────────────────────────────────────────
+            La grille s'étend sur TOUTE la hauteur du contenu (intro + wide).
+            La sidebar est sticky dans sa colonne — elle reste visible tout au
+            long du scroll, y compris pendant les sections pleine largeur.
 
-        {/* Zone 2 : sections pleine largeur */}
-        {wideSections.length > 0 && (
-          <div className="section-container mt-16">
-            <ProjectContent sections={wideSections} />
+            Colonne gauche :
+              1. Sections intro (dans la largeur normale)
+              2. Séparateur "Livrables"
+              3. Sections wide — elles utilisent un wrapper qui déborde sur
+                 toute la largeur disponible du conteneur (pas uniquement la
+                 colonne gauche) grâce à la technique col-span + negative margin.
+
+            Colonne droite :
+              Sidebar sticky top-28 — ne bouge plus.
+          */}
+          <div className="lg:flex lg:gap-12 lg:items-start">
+            {/* ── Colonne gauche (contenu) ──────────────────────────────── */}
+            <div className="min-w-0 flex-1">
+              <AnimatedSection className="mb-10">
+                <p className="text-xs font-mono text-brand-orange tracking-widest uppercase mb-2">
+                  Démarche
+                </p>
+                <h2 className="heading-md text-ink">Processus de design</h2>
+              </AnimatedSection>
+
+              {hasIntro && (
+                <div className={hasWide ? 'mb-0' : ''}>
+                  <ProjectContent sections={introSections} />
+                </div>
+              )}
+
+              {hasWide && (
+                <>
+                  {/* Séparateur entre intro et livrables */}
+                  {hasIntro && (
+                    <div className="flex items-center gap-4 my-12">
+                      <div className="flex-1 h-px bg-gradient-to-r from-ink/10 to-transparent" />
+                      <span className="text-[10px] font-mono text-ink-subtle/60 uppercase tracking-widest px-3 py-1 border border-ink/8 rounded-full">
+                        Livrables
+                      </span>
+                      <div className="flex-1 h-px bg-gradient-to-l from-ink/10 to-transparent" />
+                    </div>
+                  )}
+
+                  {/*
+                    Les sections wide s'affichent ici dans la colonne gauche
+                    mais leur contenu prend toute la largeur disponible.
+                    On utilise un wrapper avec overflow-visible et un margin
+                    négatif calculé sur la sidebar (300px + gap 48px = 348px)
+                    pour qu'elles s'étendent jusqu'au bord droit du container.
+                  */}
+                  <div className="lg:-mr-[348px] lg:pr-0">
+                    <ProjectContent sections={wideSections} />
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* ── Colonne droite — sidebar sticky ──────────────────────── */}
+            <aside className="hidden lg:block w-[300px] flex-shrink-0">
+              <div className="sticky top-28">
+                <ProjectSidebar detail={detail} />
+              </div>
+            </aside>
           </div>
-        )}
+
+          {/* Sidebar mobile inline */}
+          <div className="lg:hidden mt-12">
+            <ProjectSidebar detail={detail} />
+          </div>
+        </div>
       </div>
 
-      {/* Navigation bas de page */}
       <ProjectNavigation prev={prev} next={next} />
     </article>
   )
