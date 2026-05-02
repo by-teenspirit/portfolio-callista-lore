@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Mail,
@@ -148,7 +149,6 @@ function ContactForm() {
     try {
       // ── Envoi via EmailJS ───────────────────────────────────────────────────
       if (EMAILJS_SERVICE && EMAILJS_TEMPLATE && EMAILJS_KEY) {
-        const { default: emailjs } = await import('@emailjs/browser')
         await emailjs.sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE, formRef.current!, EMAILJS_KEY)
       } else {
         // Mode dev — simulation
@@ -427,6 +427,23 @@ export function ContactSection() {
                   <ExternalLink size={13} />
                 </a>
               </div>
+            </motion.div>
+
+            {/* Disponibilité */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="flex items-center gap-3 px-5 py-4 bg-green-50 border border-green-200 rounded-2xl"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+              </span>
+              <p className="text-sm font-body text-green-800">
+                <span className="font-semibold">Disponible</span> pour de nouvelles opportunités
+              </p>
             </motion.div>
           </div>
         </div>

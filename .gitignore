@@ -38,5 +38,7 @@ Thumbs.db
 # Testing
 coverage/
 
-# TanStack Router (auto-generated)
-src/routeTree.gen.ts
+# NOTE: src/routeTree.gen.ts intentionnellement PAS ignoré
+# Le fichier doit être commité pour que le build CI fonctionne.
+# Il est auto-généré par TanStack Router Vite plugin au dev,
+# et par `tsr generate` dans le script build.

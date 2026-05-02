@@ -31,9 +31,9 @@ jobs:
         run: npm ci
 
       - name: Build
+        # tsr generate est dans le script build — génère routeTree.gen.ts avant tsc
         run: npm run build
         env:
-          # Sous-chemin GitHub Pages — à adapter si tu as un domaine custom
           VITE_BASE: /portfolio-callista-lore/
 
       - name: Setup Pages

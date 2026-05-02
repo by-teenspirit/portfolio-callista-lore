@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsr generate && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:ui": "vitest --ui",
@@ -14,7 +14,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
     "prepare": "husky",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate-routes": "tsr generate"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
@@ -26,10 +27,11 @@
     ]
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
+    "@emailjs/browser": "^4.3.3",
     "@tanstack/react-router": "^1.28.0",
     "@tanstack/router-devtools": "^1.28.0",
     "clsx": "^2.1.0",
+    "emailjs": "^5.0.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.363.0",
     "react": "^18.2.0",
@@ -39,6 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
+    "@tanstack/router-cli": "^1.28.0",
     "@tanstack/router-vite-plugin": "^1.28.0",
     "@testing-library/jest-dom": "^6.4.0",
     "@testing-library/react": "^15.0.0",
