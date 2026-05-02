@@ -26,6 +26,7 @@
     ]
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tanstack/react-router": "^1.28.0",
     "@tanstack/router-devtools": "^1.28.0",
     "clsx": "^2.1.0",

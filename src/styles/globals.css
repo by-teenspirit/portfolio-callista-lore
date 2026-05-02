@@ -161,3 +161,239 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
   }
 }
+
+/* ── Variables supplémentaires ──────────────────────────────────────────────── */
+:root {
+  --brand-orange: #ff6b35;
+  --brand-orange-light: #ff8c5a;
+  --brand-orange-dark: #e5592a;
+  --surface: #fafaf8;
+  --surface-dark: #1a1a18;
+  --ink: #1a1a18;
+  --ink-muted: #6b6b60;
+  --ink-subtle: #9b9b8e;
+  --color-ink-subtle: #9b9b8e;
+  --color-brand-orange: #ff6b35;
+
+  /* Transitions standard */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Keyframes ────────────────────────────────────────────────────────────── */
+
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-15px, 10px) scale(0.97);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ping-slow {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ── Classes utilitaires ────────────────────────────────────────────────────── */
+
+.animate-blob {
+  animation: blob 8s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.7s var(--ease-out-expo) forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 107, 53, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ── Gradients & textures ──────────────────────────────────────────────────── */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--brand-orange) 0%, #ff9a5c 60%, #ffb380 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-animated {
+  background: linear-gradient(135deg, #ff6b35, #ff9a5c, #ff6b35);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* ── Scroll animations (IntersectionObserver fallback) ────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* ── Sélection & scrollbar ──────────────────────────────────────────────────── */
+
+::selection {
+  background-color: var(--brand-orange);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f0ee;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-orange);
+  border-radius: 2px;
+}
+
+/* ── Focus accessible ──────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Print styles (bon pour le SEO / indexation) ────────────────────────────── */
+
+@media print {
+  .cursor,
+  .cursor-follower,
+  nav,
+  footer {
+    display: none !important;
+  }
+  body {
+    color: #000;
+    background: #fff;
+  }
+  a {
+    text-decoration: underline;
+  }
+  .section-container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

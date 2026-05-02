@@ -1,18 +1,118 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="fr" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Callista Loré — UX Designer & Chef de Projet. Portfolio de conception UX/UI, recherche utilisateur et design produit." />
-    <meta property="og:title" content="Callista Loré — UX Designer" />
-    <meta property="og:description" content="Portfolio UX Design — Product Design, UX Research, UI Design, Front-End" />
-    <meta name="theme-color" content="#FF6B35" />
+
+    <!-- ── Titre & Description ─────────────────────────────────────────────── -->
+    <title>Callista Loré — UX Designer & Product Designer | Gamification</title>
+    <meta
+      name="description"
+      content="Portfolio de Callista Loré, UX Designer & Product Designer spécialisée en gamification et engagement utilisateur. Alternance iDalgo/Scorecast. Mention Major ex-aequo."
+    />
+    <meta
+      name="keywords"
+      content="UX Designer, UI Designer, Product Designer, Gamification, UX Research, Portfolio, Callista Loré, Paris, Figma, React, Engagement utilisateur, Front-End"
+    />
+    <meta name="author" content="Callista Loré" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://callista-lore.fr/" />
+
+    <!-- ── Open Graph (LinkedIn, Facebook, WhatsApp) ───────────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://callista-lore.fr/" />
+    <meta property="og:title" content="Callista Loré — UX Designer & Gamification" />
+    <meta
+      property="og:description"
+      content="Je conçois des expériences numériques engageantes. UX Design, gamification, product design — portfolio complet disponible."
+    />
+    <meta property="og:image" content="https://callista-lore.fr/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Portfolio de Callista Loré — UX Designer" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Callista Loré — Portfolio" />
+
+    <!-- ── Twitter Card ──────────────────────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Callista Loré — UX Designer & Gamification" />
+    <meta
+      name="twitter:description"
+      content="Portfolio UX Design — gamification, product design, UX research. Mention Major ex-aequo."
+    />
+    <meta name="twitter:image" content="https://callista-lore.fr/og-image.jpg" />
+
+    <!-- ── Favicon ──────────────────────────────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ff6b35" />
+
+    <!-- ── Performance ──────────────────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <title>Callista Loré — UX Designer & Chef de Projet</title>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- ── JSON-LD Structured Data ─────────────────────────────────────────── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Callista Loré",
+        "url": "https://callista-lore.fr",
+        "image": "https://callista-lore.fr/og-image.jpg",
+        "email": "callista.lore@gmail.com",
+        "jobTitle": "UX Designer & Product Designer",
+        "description": "UX Designer spécialisée en gamification et engagement utilisateur. Mention Major ex-aequo en Mastère UX Design & Stratégie Digitale.",
+        "knowsAbout": [
+          "UX Design",
+          "UI Design",
+          "Product Design",
+          "Gamification",
+          "UX Research",
+          "React",
+          "Figma",
+          "Front-End Development"
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Mastère UX Design & Stratégie Digitale"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "iDalgo / Scorecast",
+          "url": "https://www.idalgo.fr"
+        },
+        "sameAs": ["https://linkedin.com/in/callista-loré/"],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "UX Designer",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Paris"
+          },
+          "skills": "UX Design, Gamification, Product Design, UX Research, React, Figma"
+        }
+      }
+    </script>
+
+    <!-- ── Google Analytics (GA4) ───────────────────────────────────────────── -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y69GMY4CEP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y69GMY4CEP', {
+        page_title: document.title,
+        send_page_view: false
+      });
+    </script>
+
+    <!-- ── Google Search Console verification ──────────────────────────────── -->
+   <meta name="google-site-verification" content="aExwmMJiEtkYYusO2LG254Z45VN9IiS6zLpVXvOEpAQ" />
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
