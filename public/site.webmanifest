@@ -1,0 +1,19 @@
+{
+  "name": "Callista Loré — Portfolio",
+  "short_name": "Callista Loré",
+  "description": "UX Designer & Product Designer spécialisée en gamification",
+  "start_url": "/portfolio-callista-lore/",
+  "scope": "/portfolio-callista-lore/",
+  "display": "standalone",
+  "background_color": "#fafaf8",
+  "theme_color": "#ff6b35",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/portfolio-callista-lore/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
