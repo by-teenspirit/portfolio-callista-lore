@@ -2,6 +2,9 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
+  // ── Dark mode via classe sur <html> ──────────────────────────────────────────
+  // Le hook useDarkMode ajoute/retire la classe 'dark' sur document.documentElement
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -12,14 +15,17 @@ const config: Config = {
         },
         surface: {
           DEFAULT: '#FAFAF8',
-          dark: '#1A1A18',
+          dark: '#141412', // fond dark mode (plus sombre que l'original)
           card: '#FFFFFF',
-          'card-dark': '#242420',
+          'card-dark': '#1E1E1C',
         },
         ink: {
           DEFAULT: '#1A1A18',
           muted: '#6B6B60',
           subtle: '#A8A89A',
+          // tokens dark mode pour le texte
+          dark: '#E8E8E2', // texte principal en dark
+          'dark-muted': '#9B9B8E',
         },
       },
       fontFamily: {
@@ -55,7 +61,7 @@ const config: Config = {
         },
       },
       transitionTimingFunction: {
-        'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+        spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
     },
   },

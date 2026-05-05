@@ -397,3 +397,138 @@
     scroll-behavior: auto;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DARK MODE — à coller à la fin de globals.css
+   Utilise uniquement des classes Tailwind valides dans @apply,
+   et du CSS natif pour les valeurs arbitraires.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* ── Variables dark ─────────────────────────────────────────────────────────── */
+@layer base {
+  .dark {
+    color-scheme: dark;
+    --surface: #141412;
+    --ink: #e8e8e2;
+    --ink-muted: #9b9b8e;
+  }
+
+  /* Corps de page */
+  .dark body {
+    background-color: #141412;
+    color: #e8e8e2;
+  }
+
+  /* Scrollbar */
+  .dark ::-webkit-scrollbar-track {
+    background: #1e1e1c;
+  }
+
+  /* Sélection */
+  .dark ::selection {
+    background-color: var(--brand-orange);
+    color: white;
+  }
+}
+
+/* ── Textes — tous les éléments qui utilisent text-ink ────────────────────────
+   On couvre heading-xl, heading-lg, heading-md et tout texte statique         */
+@layer base {
+  /* Titres principaux */
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: #e8e8e2;
+  }
+
+  /* Paragraphes et texte courant */
+  .dark p {
+    color: #9b9b8e;
+  }
+
+  /* Classe utilitaire text-ink */
+  .dark .text-ink {
+    color: #e8e8e2 !important;
+  }
+  .dark .text-ink-muted {
+    color: #9b9b8e !important;
+  }
+  .dark .text-ink-subtle {
+    color: #6b6b60 !important;
+  }
+}
+
+/* ── Composants ────────────────────────────────────────────────────────────── */
+@layer components {
+  /* Fond de section alternate (bg-ink/[0.015]) */
+  .dark .bg-ink\/\[0\.015\] {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Cartes projets */
+  .dark .card-project {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .dark .card-project:hover {
+    border-color: rgba(255, 107, 53, 0.3);
+  }
+
+  /* Bouton outline */
+  .dark .btn-outline {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .dark .btn-outline:hover {
+    border-color: var(--brand-orange);
+    color: var(--brand-orange);
+  }
+
+  /* Cards blanches (bg-white) — formulaire contact, sidebar, blocs UX */
+  .dark .bg-white {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Inputs formulaire */
+  .dark input,
+  .dark textarea,
+  .dark select {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #e8e8e2;
+  }
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+  }
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    border-color: rgba(255, 107, 53, 0.5);
+  }
+
+  /* Interests tags (bg-white border border-ink/8) */
+  .dark .border-ink\/8 {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+  .dark .border-ink\/5 {
+    border-color: rgba(255, 255, 255, 0.05) !important;
+  }
+  .dark .border-ink\/10 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Section ProjectsSection — bg-ink/[0.015] */
+  .dark section#projects {
+    background-color: rgba(255, 255, 255, 0.015);
+  }
+
+  /* Footer */
+  .dark footer {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+}
