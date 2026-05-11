@@ -43,9 +43,9 @@
     <meta name="twitter:image" content="https://callista-lore.fr/og-image.jpg" />
 
     <!-- ── Favicon ──────────────────────────────────────────────────────────── -->
-    <link rel="icon" type="image/svg+xml" href="/portfolio-callista-lore/favicon.svg" />
-    <link rel="apple-touch-icon" href="/portfolio-callista-lore/apple-touch-icon.png" />
-<link rel="manifest" href="/portfolio-callista-lore/site.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+<link rel="manifest" href="./site.webmanifest" />
     <meta name="theme-color" content="#ff6b35" />
 
     <!-- ── Performance ──────────────────────────────────────────────────────── -->
@@ -65,8 +65,14 @@
         "jobTitle": "UX Designer & Product Designer",
         "description": "UX Designer spécialisée en gamification et engagement utilisateur. Mention Major ex-aequo en Mastère UX Design & Stratégie Digitale.",
         "knowsAbout": [
-          "UX Design", "UI Design", "Product Design", "Gamification",
-          "UX Research", "React", "Figma", "Front-End Development"
+          "UX Design",
+          "UI Design",
+          "Product Design",
+          "Gamification",
+          "UX Research",
+          "React",
+          "Figma",
+          "Front-End Development"
         ],
         "alumniOf": {
           "@type": "EducationalOrganization",
@@ -77,9 +83,7 @@
           "name": "iDalgo / Scorecast",
           "url": "https://www.idalgo.fr"
         },
-        "sameAs": [
-          "https://linkedin.com/in/callista-loré/"
-        ],
+        "sameAs": ["https://linkedin.com/in/callista-loré/"],
         "hasOccupation": {
           "@type": "Occupation",
           "name": "UX Designer",
@@ -92,34 +96,36 @@
       }
     </script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y69GMY4CEP"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y69GMY4CEP"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
       gtag('config', 'G-Y69GMY4CEP', {
         page_title: document.title,
-        send_page_view: false
-      });
+        send_page_view: false,
+      })
     </script>
 
     <!-- ── Google Search Console verification ──────────────────────────────── -->
-<meta name="google-site-verification" content="aExwmMJiEtkYYusO2LG254Z45VN9IiS6zLpVXvOEpAQ" />
+    <meta name="google-site-verification" content="aExwmMJiEtkYYusO2LG254Z45VN9IiS6zLpVXvOEpAQ" />
 
-  <!-- Anti-flash dark mode — DOIT être avant tout autre script -->
-  <script>
-    (function() {
-      var saved = localStorage.getItem('cl-theme');
-      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        document.documentElement.classList.add('dark');
-      }
-    })();
-  </script>
+    <!-- Anti-flash dark mode — DOIT être avant tout autre script -->
+    <script>
+      ;(function () {
+        var saved = localStorage.getItem('cl-theme')
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.classList.add('dark')
+        }
+      })()
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
